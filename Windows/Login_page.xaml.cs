@@ -80,7 +80,7 @@ namespace Hospital_managment_system.Windows
 
                 await connection.CloseAsync();
             }
-            if (check>0) return true ; else return false;
+            if (check==1) return true ; else return false;
         }
         
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)

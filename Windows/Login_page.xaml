@@ -125,11 +125,10 @@
 
 
                 </Border>
-                    <Border Margin="180,0,15,0">
+                    <!--<Border Margin="180,0,15,0">
                         <Image Source="/Assets/Icons/view.png" Width="15" Height="15"
-                               
-                                 ></Image>
-                    </Border>
+                                ></Image>
+                    </Border>-->
                 </Grid>
                 <Label
                        Foreground="#334D66"

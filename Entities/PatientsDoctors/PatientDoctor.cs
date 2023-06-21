@@ -14,5 +14,6 @@ public sealed class PatientDoctor: Auditable
     public DateOnly cur_date { get; set; }  
     public float doctor_exam_cost { get; set; } 
     public string description { get; set; } = string.Empty;
+    public int next_exam_day { get; set; }  
 
 }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Hospital_managment_system.Interfaces;
 // Umumiy hammasi uchun ishlaydigan interfacelar yoziladi
-public interface IRepository<TModel , TViewModel>
+public interface IRepository<TEntity , TViewModel>
 {
-    public Task<int> CreateAsync(TModel obj);
-    public Task<int> UpdateAsync(long id, TModel editObj);
+    public Task<int> CreateAsync(TEntity obj);
+    public Task<int> UpdateAsync(long id, TEntity editObj);
     public Task<int> DeleteAsync (long id);
     public Task<IList<TViewModel>> GetAllAsync(Paginations @params);
     public Task<TViewModel> GetAsync (long  id); 

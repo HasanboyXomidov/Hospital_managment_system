@@ -10,6 +10,21 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <!--This is for background-->
+                <ResourceDictionary Source="/Themes/LightTheme.xaml"/>
+                <!--This is for background-->
+                
+                <!--Button styles-->
+                <ResourceDictionary Source="/Styles/ButtonStyles.xaml"/>
+                <!--Button styles-->
+                
+                <!--Border style-->
+                <ResourceDictionary Source="/Styles/Top4Borders.xaml"/>
+                <!--Border style-->
+                
+                <!--Icon styles-->
+                <ResourceDictionary Source="/Assets/Icons/Icons.xaml"/>
+                <!--Icon styles-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

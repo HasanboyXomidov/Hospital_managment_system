@@ -9,5 +9,6 @@ namespace Hospital_managment_system.Interfaces.Nurses;
 
 public interface INurseRepository: IRepository<Nurse,Nurse>
 {
-    public Task<int> CountAync();
+    public Task<int> CountAsync();
+
 }

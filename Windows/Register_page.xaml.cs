@@ -33,9 +33,9 @@ namespace Hospital_managment_system.Windows
 
             int cnt = 0;
             if (Tb_FirstName.Text.Length > 0 && Tb_FirstName.Text.Length < 32) cnt += 1;
-            else if (Tb_SecondName.Text.Length > 9 && Tb_SecondName.Text.Length < 32) cnt += 1;
-            else if (Tb_Email.Text.Length > 0 && Tb_Email.Text.Length < 32 && Tb_Email.Text.Contains('@') && Tb_Email.Text.Contains('.')) cnt += 1;
-            else if (Tb_Password.Password.ToString().Length > 8 && Tb_Password.Password.ToString().Length < 32) cnt += 1;
+            if (Tb_SecondName.Text.Length > 0 && Tb_SecondName.Text.Length < 32) cnt += 1;
+            if (Tb_Email.Text.Length > 0 && Tb_Email.Text.Length < 32 && Tb_Email.Text.Contains('@') && Tb_Email.Text.Contains('.')) cnt += 1;
+            if (Tb_Password.Password.Length >= 8 && Tb_Password.Password.Length < 32) cnt += 1;
 
             if (cnt == 4)
             {

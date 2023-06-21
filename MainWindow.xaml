@@ -5,11 +5,168 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hospital_managment_system"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        ResizeMode="CanMinimize"
+        
         WindowState="Maximized"
-        ResizeMode="NoResize"
+        Title="MainWindow" Height="800" 
+        Width="1100"        
+        
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource SecondaryBackground}"
         >
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border 
+            BorderBrush="{DynamicResource GreyBorder}"
+                BorderThickness="0 0 2 0"   
+            Grid.Column="0"
+            Background="{DynamicResource PrimaryBackground}"
+                >
+            <StackPanel >
+                <Image Source="/Assets/Logos/RedLogo.png"
+                       Margin="25 0 50 10"/>
+                <RadioButton x:Name="rbDashboard" 
+                             Content="Dashboard"
+                             Style="{DynamicResource MenuButton}"
+                             Click="rbDashboard_Click"
+                             Tag="{DynamicResource DashboardIcon}" >
+                             
+                </RadioButton>
+                <RadioButton x:Name="rbAppointment" 
+                             Content="Appointment"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource AppointmentIcon}" 
+                             Checked="rbAppointment_Checked">
 
+                </RadioButton>
+                <RadioButton x:Name="rbDoctor" 
+                             Content="Doctor"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource DoctorIcon}"
+                             Checked="rbDoctor_Checked">
+                </RadioButton>
+                <RadioButton x:Name="rbDepartment" 
+                             Content="Department"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource DepartmentIcon}"
+                             Checked="rbDepartment_Checked">
+                             
+                </RadioButton>
+                <RadioButton x:Name="rbPatient" 
+                             Content="Patient"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource PatientsIcon}"
+                             Click="rbPatient_Click">
+                </RadioButton>
+                <RadioButton x:Name="rbSurjeries" 
+                             Content="Surjeries"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource SurjeryIcon}"
+                             Click="rbSurjeries_Click">
+                </RadioButton>
+                <RadioButton x:Name="rbBed_Managment" 
+                             Content="Bed Managment"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource BedManagmentIcon}"
+                             Click="rbBed_Managment_Click">
+                </RadioButton>
+                <RadioButton x:Name="rbStaff" 
+                             Content="Staff"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource StaffIcon}"
+                             Click="rbStaff_Click">
+                </RadioButton>
+                <RadioButton x:Name="rbPayment" 
+                             Content="Payment"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource PaymentIcon}"
+                             Click="rbPayment_Click">
+                </RadioButton>
+                <RadioButton x:Name="rbBMessage" 
+                             Content="Message"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource MessageIcon}"
+                             Click="rbBMessage_Click">
+                </RadioButton>
+                <RadioButton x:Name="rbComplaint" 
+                             Content="Complaint"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource ComplaintIcon}"
+                             Click="rbComplaint_Click">
+                </RadioButton>
+                <Border 
+                        Margin="0 50 0 0"
+                        Height="120"
+                        Width="220"
+                        Background="{DynamicResource Gradient}"
+                        CornerRadius="10">
+                    <StackPanel >
+                        <Label Foreground="{DynamicResource PrimaryBackground}"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               Margin="57 15 55 10"
+                               >Need help?</Label>
+                        <Border x:Name="Doc_Border"
+                                Height="30"
+                                Width="200"
+                                Background="{DynamicResource PrimaryBackground}"
+                                CornerRadius="10">
+                            <Label x:Name="Doc_Label" HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="14"
+                                   Foreground="{DynamicResource Gradient}"
+                                   FontWeight="SemiBold">Documentation</Label>
+                            
+                        </Border>
+                        
+                    </StackPanel>
+                </Border>
+                <Border Margin="180 5 15 0"
+                        Height="25"
+                        CornerRadius="10"
+                        Background="{DynamicResource Gradient}">
+                    <Border Height="20"
+                            Width="20"
+                            Margin="0 0 25 0"
+                            CornerRadius="10"
+                            Background="White"
+                            >
+                    </Border>
+                </Border>
+
+
+            </StackPanel>
+        </Border>
+        
+        <Grid 
+            
+            Grid.Column="1"
+            Background="{DynamicResource PrimaryBackground}"
+                >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0"                 
+                    Background="{DynamicResource PrimaryBackground}"                    
+                    >
+                
+                <StackPanel Orientation="Horizontal">
+                    <!--This is top bar -->
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="1"
+                Background="{DynamicResource SecondaryBackground}">
+                <Frame x:Name="PageNavigator"
+                       NavigationUIVisibility="Hidden" />
+            </Border>
+    
+        </Grid>
+        
     </Grid>
+    
+    
 </Window>

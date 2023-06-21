@@ -13,6 +13,7 @@ class TimeHelper
     {
         var dTime = DateTime.UtcNow;
         dTime.AddHours(TimeConstants.UTC); 
-        return dTime;
+        return dTime;                            
+
     }
 }

@@ -20,6 +20,10 @@
     <None Remove="Assets\Images\healthcare_blue.png" />
     <None Remove="Assets\Images\Login_back_image.jpeg" />
     <None Remove="Assets\Images\Register_background.jpeg" />
+    <None Remove="Assets\Logos\Color logo - no background.png" />
+    <None Remove="Assets\Logos\RedLogo.png" />
+    <None Remove="Assets\Logos\White logo - no background.png" />
+    <None Remove="Assets\Logos\WhiteLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Icons\view.png">
@@ -38,16 +42,13 @@
   <ItemGroup>
     <Resource Include="Assets\Images\Login_back_image.jpeg" />
     <Resource Include="Assets\Images\Register_background.jpeg" />
+    <Resource Include="Assets\Logos\RedLogo.png" />
+    <Resource Include="Assets\Logos\WhiteLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Logos\" />
     <Folder Include="Assets\Sounds\" />
-    <Folder Include="Components\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Styles\" />
-    <Folder Include="Pages\" />
+    <Folder Include="Pages\DepartmentPages\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup Condition="$(VisualStudioVersion) == '17.0'">
     <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>$(SSDTPath)\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>

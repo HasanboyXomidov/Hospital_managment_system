@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hospital_managment_system.Entities.PatientsDoctors;
+using Hospital_managment_system.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +26,77 @@ namespace Hospital_managment_system
         {
             InitializeComponent();
         }
+
+        private void rbDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            DashboardPage dashboardpage = new DashboardPage();
+            PageNavigator.Content = dashboardpage;
+            
+        }
+
+        private void rbAppointment_Checked(object sender, RoutedEventArgs e)
+        {
+            AppointmentPage appointmentpage = new AppointmentPage();
+            PageNavigator.Content = appointmentpage;
+        }
+
+        private void rbPatient_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Patient patient = new Patient();
+            PageNavigator.Content = patient;
+        }
+
+        private void rbSurjeries_Click(object sender, RoutedEventArgs e)
+        {
+            SurjeriePage surjeripage = new SurjeriePage();
+            PageNavigator.Content = surjeripage;            
+        }
+
+        private void rbBed_Managment_Click(object sender, RoutedEventArgs e)
+        {
+            
+            BedMangmentPage page = new BedMangmentPage();
+            PageNavigator.Content = page;
+
+        }
+
+        private void rbStaff_Click(object sender, RoutedEventArgs e)
+        {
+            StaffPage page = new StaffPage();
+            PageNavigator.Content = page;
+        }
+
+        private void rbPayment_Click(object sender, RoutedEventArgs e)
+        {
+            PaymentPage page = new PaymentPage();
+            PageNavigator.Content = page;
+        }
+
+        private void rbBMessage_Click(object sender, RoutedEventArgs e)
+        {
+            MessagePage page    = new MessagePage();
+            PageNavigator.Content = page;
+        }
+
+        private void rbComplaint_Click(object sender, RoutedEventArgs e)
+        {
+            ComplaintPage page = new ComplaintPage();
+            PageNavigator.Content = page;
+        }
+
+        private void rbDoctor_Checked(object sender, RoutedEventArgs e)
+        {
+            DoctorPage doctorpage = new DoctorPage();
+            PageNavigator.Content = doctorpage;
+        }
+
+        private void rbDepartment_Checked(object sender, RoutedEventArgs e)
+        {
+            Department department = new Department();
+            PageNavigator.Content = department;
+        }
+
+
     }
 }

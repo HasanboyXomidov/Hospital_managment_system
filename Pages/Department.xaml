@@ -1,0 +1,214 @@
+﻿<Page x:Class="Hospital_managment_system.Pages.Department"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hospital_managment_system.Pages"
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      Height="750" Width="1200"
+      Title="Department">
+
+    <Grid >
+        <Border Margin="20,15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+                    <Border Style="{DynamicResource TopBanners}" >
+                        
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    >
+                                <Path Margin="10 5 0 0"                                      
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Total Department"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="10"
+                                        Margin="0 3 0 0"
+                                        Height="22">
+                                </Label>
+                                <Label  Margin="0 0 0 0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"
+                                        x:Name="TotalDepartmentlbl">
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <Border Style="{DynamicResource TopBanners}">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    >
+                                <Path Margin="10 5 0 0"                                      
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Top Department"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="10"
+                                        Margin="0 3 0 0"
+                                        Height="20">
+                                </Label>
+                                <Label  Margin="0 0 0 0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"
+                                        x:Name="TopDepartmentlbl">
+                                        
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+
+                    </Border>
+                    <Border Style="{DynamicResource TopBanners}">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    >
+                                <Path Margin="10 5 0 0"                                      
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Active Department"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="10"
+                                        Margin="0 3 0 0"
+                                        Height="20">
+                                </Label>
+                                <Label  Margin="0 0 0 0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"
+                                        x:Name="ActivelDepartmentlbl">
+                                </Label>
+                            </StackPanel>
+                            
+                        </Grid>
+
+                    </Border>
+                    <Border Style="{DynamicResource TopBanners}">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    >
+                                <Path Margin="10 5 0 0"                                      
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Not Active Dep"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="10"
+                                        Margin="0 3 0 0"
+                                        Height="20">
+                                </Label>
+                                <Label  Margin="0 0 0 0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"
+                                        x:Name="NotActiveDepartmentlbl">
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+                        
+                    </Border>
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="710"/>
+                            <ColumnDefinition Width="220"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="1" 
+                                Background="{DynamicResource PrimaryBackground}"
+                                CornerRadius="15"
+                                Margin="0 10 0 10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                    <Path Fill="{DynamicResource Gradient}"                                      
+                                      Margin="20 5 0 0"
+                                      Width="30"
+                                          Height="30"
+                                      Grid.Column="0"
+                                      Data="{DynamicResource SearchICon2}"/>
+                                <TextBox Grid.Column="1" x:Name="Search" Margin="0 10 0 10" Width="150">
+
+                                </TextBox>
+                            </Grid>
+                        </Border>
+                        <Button x:Name="BtnCreate"
+                                Style="{DynamicResource CreateButton}"
+                                Content="Create"
+                                Grid.Column="2"                                                                                         
+                                Margin="10 10 80 10"
+                                Click="MouseCreateClick"
+                                />
+                    </Grid>
+                </Grid>
+                <WrapPanel  x:Name="MainWP"
+                        Grid.Row="2">
+                    
+                </WrapPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
