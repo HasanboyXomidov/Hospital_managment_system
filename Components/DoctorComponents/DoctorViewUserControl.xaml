@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="Hospital_managment_system.Components.DoctorComponents.DoctorViewUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hospital_managment_system.Components.DoctorComponents"
+             mc:Ignorable="d" 
+             Height="300" Width="300"
+             Margin="5">
+    <Grid>
+        
+        <Border Background="{DynamicResource PrimaryBackground}"
+                CornerRadius="10"                
+                >
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+            </Border.Effect>
+            <Border Margin="10 15 10 15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    
+                </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <Border Grid.Row="0" 
+                                x:Name="imgBorder"
+                        Margin="65 0 0 0"
+                        CornerRadius="100"                        
+                        Width="150"
+                        BorderThickness="1"
+                                BorderBrush="{DynamicResource GreyBorder}">
+                            <Border CornerRadius="100">
+                                <Border.Background>
+                                    <ImageBrush x:Name="ImgBImage"
+                                                />
+                                </Border.Background>
+                            </Border>
+                        </Border>
+                        <Button Margin="30 0 0 120"
+                                Padding="0"
+                                Width="30"
+                                Height="30"
+                                Click="Button_Click"
+                                Tag="{DynamicResource OthersIcon}"
+                                Style="{DynamicResource EditButton}"
+                                >
+                            
+                                                        
+                        </Button>
+                    </StackPanel>
+                    <Label Grid.Row="1"
+                       FontSize="16"
+                           Margin="50 0"
+                           HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Foreground="{DynamicResource Gradient}"                                                                                            
+                       x:Name="DoctorFio">
+                    
+                </Label>
+                    <Label Grid.Row="2"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           Foreground="{DynamicResource GreyText}"
+                           x:Name="numberlbl"
+                           >
+                        
+                    </Label>
+                    <Label Grid.Row="3"
+                           FontSize="14"                       
+                       Foreground="{DynamicResource GreyText}"
+                       HorizontalAlignment="Center"
+                           
+                       Margin="50 0 50 0"
+                           x:Name="DoctorPosition"
+                           >
+                    </Label>
+                       <Button Grid.Row="4"
+                            Height="35"                    
+                            Padding="0"
+                            Margin="0"
+                            Style="{DynamicResource View_Profile}"                            
+                            Content="View Profile"
+                            >
+                        
+                    </Button>
+            </Grid>
+            </Border>
+        </Border>
+        <Border     x:Name="EditDelete"                    
+                    Height="60"                    
+                    Width="25"
+                    Visibility="Hidden"
+                    CornerRadius="10"
+                    Margin="245 0 5 140">
+            <StackPanel Background="{DynamicResource PrimaryBackground}">
+                <Border Height="30" CornerRadius="10">
+                    <Button BorderBrush="{DynamicResource SecondaryBackground}"
+                            BorderThickness="1 1 1 0"
+                            Background="{DynamicResource PrimaryBackground}">
+                        <Image Source="/Assets/Icons/pencil (1).png"></Image>
+                    </Button>
+                </Border>
+                <Border Height="30" CornerRadius="10">
+                    <Button BorderBrush="{DynamicResource SecondaryBackground}"
+                            Background="{DynamicResource PrimaryBackground}"
+                            BorderThickness="1 0 1 1"
+                            >
+                        <Image Source="/Assets/Icons/delete (2).png"></Image>
+                    </Button>
+                </Border>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+    
+</UserControl>

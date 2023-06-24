@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,6 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace Hospital_managment_system.Windows.Departments
 {
@@ -47,8 +49,10 @@ namespace Hospital_managment_system.Windows.Departments
                 else department.is_active = false;
                 department.description = new TextRange(rbDescription.Document.ContentStart, rbDescription.Document.ContentEnd).Text;
                 department.created_at = department.updated_at = TimeHelper.GetDateTime();
+
                 var result = await _departmentrepository.CreateAsync(department);
                 if (result > 0) { MessageBox.Show("Success"); this.Close(); }
+                
                 else MessageBox.Show("Errorr");
             }            
         }
@@ -58,5 +62,7 @@ namespace Hospital_managment_system.Windows.Departments
 
             this.Close();
         }
-    }
+    
+    
+}
 }

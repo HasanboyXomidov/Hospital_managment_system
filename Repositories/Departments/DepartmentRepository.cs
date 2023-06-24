@@ -14,10 +14,10 @@ namespace Hospital_managment_system.Repositories.Departments;
 
 public  class DepartmentRepository : BaseRepository, IDepartmentRepository
 {
-    //private readonly NpgsqlConnection _connection;
+
     public DepartmentRepository()
     {
-//        _connection=new NpgsqlConnection(Db_Constants.DB_CONNECTION_STRING);
+
     }
     public async Task<int> CreateAsync(Entities.Departments.Department obj)
     {
@@ -96,6 +96,36 @@ public  class DepartmentRepository : BaseRepository, IDepartmentRepository
     public Task<Entities.Departments.Department> GetAsync(long id)
     {
         throw new NotImplementedException();
+    }
+
+
+
+    public async Task<int> GetTotalDepartment()
+    {
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "select count(*) from department;";
+            await using(var command = new NpgsqlCommand(query,_connection))
+            {
+                int count = 0;
+                await using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (await reader.ReadAsync())
+                    {
+                       count = reader.GetInt32(0);
+                        
+                    }
+                }
+                
+                return count;
+            }
+        }
+        catch
+        {
+            return 0;           
+        }
+        finally { await _connection.CloseAsync(); }
     }
 
     public Task<int> UpdateAsync(long id, Entities.Departments.Department editObj)

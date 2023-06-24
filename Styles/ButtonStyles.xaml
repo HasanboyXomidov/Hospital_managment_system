@@ -42,6 +42,7 @@
                                    FontWeight="SemiBold"
                                    FontSize="{TemplateBinding FontSize}"
                                    Content="{TemplateBinding Content}"/>
+                            
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -83,6 +84,7 @@
                             <Setter TargetName="Indicator" Property="Visibility" Value="Visible"/>
                             <Setter TargetName="label"  Property="Foreground" Value="{DynamicResource PrimaryBackground}"/>
                             <Setter TargetName="icon" Property="Fill" Value="{DynamicResource PrimaryBackground}"/>
+                            
                         </Trigger>
                         <!--Button triggers-->
                         
@@ -170,13 +172,199 @@
                             <Setter TargetName="Createlbl" Property="Foreground" Value="{DynamicResource Gradient}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="CreateButtonBorder" Property="Background" Value="{DynamicResource GreyBorder}"/>
-                            <Setter TargetName="Createlbl" Property="Foreground" Value="{DynamicResource Red}"/>
+                            <Setter TargetName="CreateButtonBorder" Property="Background" Value="{DynamicResource Red}"/>
+                            <Setter TargetName="Createlbl" Property="Foreground" Value="{DynamicResource PrimaryBackground}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="CreateButtonBorder" Property="Background" Value="{DynamicResource Red}"/>
                             <Setter TargetName="Createlbl" Property="Foreground" Value="{DynamicResource PrimaryBackground}"/>
                         </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="View_Profile" TargetType="Button">
+        <Setter Property="Template">
+
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="CreateButtonBorder"
+                        CornerRadius="10"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                               BorderThickness="1"
+                            Width="120"
+                            Height="25"
+                            >
+                        <Label x:Name="Createlbl"
+                               FontSize="14"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"                               
+                               Padding="0"
+                               Content="{TemplateBinding Content}">
+                        </Label>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="CreateButtonBorder" Property="Cursor" Value="Hand" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="CreateButtonBorder" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+                            <Setter TargetName="Createlbl" Property="Foreground" Value="{DynamicResource GreyText}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="CreateButtonBorder" Property="Background" Value="{DynamicResource Gradient}"/>
+                            <Setter TargetName="Createlbl" Property="Foreground" Value="{DynamicResource PrimaryBackground}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="CreateButtonBorder" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+                            <Setter TargetName="Createlbl" Property="Foreground" Value="{DynamicResource GreyText}"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="EditButton" TargetType="Button">
+        <Setter Property="Template">
+
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="EditButtonBorder"
+                        CornerRadius="10"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                               BorderThickness="0"                            
+                            >
+                        <Path x:Name="icon"                                  
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                                  Height="20" Width="20"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Fill="{DynamicResource Gradient}"                                  
+                                  Stretch="Uniform"/>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="EditButtonBorder" Property="Cursor" Value="Hand" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="EditButtonBorder" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="EditButtonBorder" Property="Background" Value="{DynamicResource MouseoverFalseForEditBut}"/>
+                            
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="EditButtonBorder" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+                            
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="RoomSort" TargetType="{x:Type RadioButton}">
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="5 2 5 2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="B" CornerRadius="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0"/>
+                                <ColumnDefinition Width="0"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="Indicator" 
+                                    Visibility="Collapsed"
+                                    Height="30"
+                                    Width="8"
+                                    Margin="4,0"
+                                    CornerRadius="5"
+                                    Background="{DynamicResource PrimaryBackground}">
+                            </Border>
+                            <Path x:Name="icon"
+                                  Grid.Column="1"
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}"
+                                  Height="20" Width="20"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Fill="{DynamicResource Gradient}"
+                                  
+                                  Stretch="Uniform"/>
+
+                            <Label x:Name="label"                                   
+                                   Margin="0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="2"                                   
+                                   FontWeight="SemiBold"
+                                   FontSize="{TemplateBinding FontSize}"
+                                   Content="{TemplateBinding Content}"/>
+
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="B" Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <!--Icon triggers -->
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="icon" Property="Fill" Value="{DynamicResource Gradient}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="icon" Property="Fill" Value="{DynamicResource PrimaryBackground}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="icon" Property="Cursor" Value="Wait" />
+                        </Trigger>
+                        <!--Icon triggers -->
+
+                        <!--Label triggers-->
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="label" Property="Foreground" Value="{DynamicResource Gradient}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="label" Property="Foreground" Value="{DynamicResource PrimaryBackground}"/>
+                        </Trigger>
+                        <!--Label triggers-->
+
+                        <!--Button triggers-->
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="B" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="B" Property="Background" Value="{DynamicResource Gradient}"/>
+                        </Trigger>
+
+
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="B" Property="Background" Value="{DynamicResource Gradient}"/>
+                            <Setter TargetName="Indicator" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="label"  Property="Foreground" Value="{DynamicResource PrimaryBackground}"/>
+                            <Setter TargetName="icon" Property="Fill" Value="{DynamicResource PrimaryBackground}"/>
+
+                        </Trigger>
+                        <!--Button triggers-->
+
 
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

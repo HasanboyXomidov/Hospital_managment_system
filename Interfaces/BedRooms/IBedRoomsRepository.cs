@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 namespace Hospital_managment_system.Interfaces.BedRooms;
 
 public interface IBedRoomsRepository : IRepository<BedRoom,BedRoomsViewModel>
-{
-    //public Task<IList<BedRoomsViewModel>> GetAllById(int room_number);
-    
+{        
 
 }

@@ -10,5 +10,8 @@ public sealed class BedRoom : Room
 {    
     public long room_type_id { get ; set; } 
     public int capacity { get; set; }
+
+    public int room_number { get; set; }
+
     
 }

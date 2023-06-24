@@ -13,6 +13,36 @@ namespace Hospital_managment_system.Repositories.Doctors;
 
 public class DoctorRepository : BaseRepository, IDoctorRepository
 {
+    public async Task<int> CountDoctor()
+    {
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "select count(*) from doctors_view;";
+            await using (var command = new NpgsqlCommand(query,_connection)) 
+            {
+                int count = 0;
+                await using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        count = reader.GetInt32(0);
+
+                    }
+                }
+                return count;
+            }
+        }
+        catch 
+        {
+            return 0;            
+        }
+        finally
+        {
+            await _connection.CloseAsync();
+        }
+    }
+
     public async Task<int> CreateAsync(Doctor obj)
     {
         try
@@ -29,12 +59,14 @@ public class DoctorRepository : BaseRepository, IDoctorRepository
                 command.Parameters.AddWithValue("tel_number", obj.tel_number);
                 command.Parameters.AddWithValue("date_birth", obj.date_birth);
                 command.Parameters.AddWithValue("department_id", obj.department_id);
+                command.Parameters.AddWithValue("rooms_id", obj.rooms_id);
                 command.Parameters.AddWithValue("description", obj.description);
                 command.Parameters.AddWithValue("medical_education_image_path", obj.medical_education_image_path);
                 command.Parameters.AddWithValue("higher_education_image_path", obj.higher_education_image_path);
                 command.Parameters.AddWithValue("passport_image_path", obj.Passport_Image_Path);
                 command.Parameters.AddWithValue("created_at", obj.created_at);
                 command.Parameters.AddWithValue ("updated_at", obj.updated_at);
+                
 
                 var result = await command.ExecuteNonQueryAsync();
                 return result;
@@ -52,9 +84,51 @@ public class DoctorRepository : BaseRepository, IDoctorRepository
         throw new NotImplementedException();
     }
 
-    public Task<IList<DoctorsViewModel>> GetAllAsync(Paginations @params)
+    public async Task<IList<DoctorsViewModel>> GetAllAsync(Paginations @params)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _connection.OpenAsync();
+            string query = $"select * from doctors_view order by id " +
+                $"offset {(@params.PageNumber - 1) * @params.PageSize} " +
+                $"limit {@params.PageSize}";
+            List<DoctorsViewModel> doctorsViewModels = new List<DoctorsViewModel>();
+            await using (var command= new NpgsqlCommand(query,_connection))
+            {
+                await using (var reader= await  command.ExecuteReaderAsync())
+                {
+                    while(await reader.ReadAsync())
+                    {
+                        var obj = new DoctorsViewModel();
+                        obj.Id = reader.GetInt64(0);
+                        obj.name=reader.GetString(1);
+                        obj.surname=reader.GetString(2);
+                        obj.is_male=reader.GetBoolean(3);
+                        obj.adress=reader.GetString(4);
+                        obj.tel_number=reader.GetString(5);
+                        obj.date_birth = reader.GetFieldValue<DateOnly>(6);
+                        obj.department=reader.GetString(7);
+                        obj.room = reader.GetInt32(8);
+                        obj.description=reader.GetString(9);
+                        obj.created_at=reader.GetDateTime(10);
+                        obj.updated_at=reader.GetDateTime(11);
+                        obj.passport_image_path=reader.GetString(12);
+
+                        doctorsViewModels.Add(obj);
+
+                    }
+                }
+            }
+                return doctorsViewModels;
+        }
+        catch 
+        {
+            return new List<DoctorsViewModel>();
+        }
+        finally
+        {
+            await _connection.CloseAsync();
+        }
     }
 
     public async Task<DoctorsViewModel> GetAsync(long id)
@@ -77,12 +151,14 @@ public class DoctorRepository : BaseRepository, IDoctorRepository
                         viewModel.surname = reader.GetString(2);
                         viewModel.is_male=reader.GetBoolean(3);
                         viewModel.adress = reader.GetString(4);
-                        viewModel.date_birth= reader.GetFieldValue<DateOnly>(5);
-                        viewModel.department = reader.GetString(6);
-                        viewModel.room = reader.GetInt32(7);
-                        viewModel.description = reader.GetString(8);
-                        viewModel.created_at = reader.GetDateTime(9);
-                        viewModel.updated_at = reader.GetDateTime(10);
+                        viewModel.tel_number = reader.GetString(5);
+                        viewModel.date_birth= reader.GetFieldValue<DateOnly>(6);
+                        viewModel.department = reader.GetString(7);
+                        viewModel.room = reader.GetInt32(8);
+                        viewModel.description = reader.GetString(9);
+                        viewModel.created_at = reader.GetDateTime(10);
+                        viewModel.updated_at = reader.GetDateTime(11);
+                        viewModel.passport_image_path = reader.GetString(12);
 
                     }
                 }

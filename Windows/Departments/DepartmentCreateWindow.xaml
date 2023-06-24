@@ -34,10 +34,11 @@
                             CornerRadius="10"
                             BorderThickness="1"
                             >
-                    <TextBox x:Name="lblName"
-                             MaxLength="50"
+                    <TextBox x:Name="lblName"                                                          
                             Margin="10"
+                             FontSize="16"
                              BorderBrush="{DynamicResource GreyBorder}"
+                             Foreground="{DynamicResource GreyText}"
                              >
                         
                     </TextBox>
@@ -57,6 +58,7 @@
                     <CheckBox Margin="15 5 0 0"
                               x:Name="cbIs_active"
                               Height="20"
+                              Background="{DynamicResource Gradient}"
                               >
                         <CheckBox.LayoutTransform>
                             <ScaleTransform ScaleX="2" ScaleY="2" />
@@ -82,6 +84,8 @@
                             >
                         <RichTextBox Height="80"
                                      Margin="10"
+                                     FontSize="16"
+                                     Foreground="{DynamicResource GreyText}"
                                      x:Name="rbDescription">
                                     
                         </RichTextBox>

@@ -24,5 +24,15 @@ namespace Hospital_managment_system.Pages
         {
             InitializeComponent();
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCreate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -6,63 +6,75 @@
       xmlns:local="clr-namespace:Hospital_managment_system.Pages"
       mc:Ignorable="d" 
       Loaded="Page_Loaded"
-      Height="750" Width="1200"
+      Height="800" Width="1300"
       Title="Department">
 
     <Grid >
         <Border Margin="20,15">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="80"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 
                 <StackPanel Grid.Row="0"
                     Orientation="Horizontal">
-                    <Border Style="{DynamicResource TopBanners}" >
+                    <Border Style="{DynamicResource TopBanners}" 
+                            Width="300"
+                            Height="80"
+                            Margin="5 0">
                         
                         <Border.Effect>
-                            <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+                            <DropShadowEffect ShadowDepth="0.1" 
+                                              Opacity="0.5"/>
                         </Border.Effect>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Border Grid.Column="0"
                                     Background="{DynamicResource Gradient}"
                                     Margin="8"
                                     CornerRadius="10"
+                                    
                                     >
-                                <Path Margin="10 5 0 0"                                      
+                                <Path Height="40" Width="40"
+                                      Stretch="Uniform"
                                       Fill="{DynamicResource PrimaryBackground}"
                                       Data="{DynamicResource SearchIcon}"/>
                             </Border>
                             <StackPanel Grid.Column="1">
                                 <Label  Content="Total Department"
                                         Foreground="{DynamicResource GreyText}"
-                                        FontSize="10"
+                                        FontSize="16"
                                         Margin="0 3 0 0"
-                                        Height="22">
+                                        Height="30">
                                 </Label>
-                                <Label  Margin="0 0 0 0"
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
                                         FontSize="16"
                                         Foreground="{DynamicResource Gradient}"
                                         FontWeight="Bold"
-                                        Height="25"
+                                        Height="25"                                        
                                         x:Name="TotalDepartmentlbl">
                                 </Label>
                             </StackPanel>
                         </Grid>
                     </Border>
-                    <Border Style="{DynamicResource TopBanners}">
+                    <Border Style="{DynamicResource TopBanners}"
+                            Width="300"
+                            Height="80"
+                            Margin="5 0">
                         <Border.Effect>
-                            <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+                            <DropShadowEffect ShadowDepth="0.1"
+                                              Opacity="0.5"
+                                              />
                         </Border.Effect>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Border Grid.Column="0"
@@ -70,18 +82,20 @@
                                     Margin="8"
                                     CornerRadius="10"
                                     >
-                                <Path Margin="10 5 0 0"                                      
+                                <Path Height="40" Width="40"
+                                      Stretch="Uniform"
                                       Fill="{DynamicResource PrimaryBackground}"
                                       Data="{DynamicResource SearchIcon}"/>
                             </Border>
                             <StackPanel Grid.Column="1">
                                 <Label  Content="Top Department"
                                         Foreground="{DynamicResource GreyText}"
-                                        FontSize="10"
+                                        FontSize="16"
                                         Margin="0 3 0 0"
-                                        Height="20">
+                                        Height="30">
                                 </Label>
-                                <Label  Margin="0 0 0 0"
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
                                         FontSize="16"
                                         Foreground="{DynamicResource Gradient}"
                                         FontWeight="Bold"
@@ -93,13 +107,17 @@
                         </Grid>
 
                     </Border>
-                    <Border Style="{DynamicResource TopBanners}">
+                    <Border Style="{DynamicResource TopBanners}"
+                            Width="300"
+                            Height="80"
+                            Margin="5 0">
+                        
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
                         </Border.Effect>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Border Grid.Column="0"
@@ -107,18 +125,21 @@
                                     Margin="8"
                                     CornerRadius="10"
                                     >
-                                <Path Margin="10 5 0 0"                                      
+                                <Path Width="40"                                    
+                                      Height="40"
+                                      Stretch="Uniform"
                                       Fill="{DynamicResource PrimaryBackground}"
                                       Data="{DynamicResource SearchIcon}"/>
                             </Border>
                             <StackPanel Grid.Column="1">
                                 <Label  Content="Active Department"
                                         Foreground="{DynamicResource GreyText}"
-                                        FontSize="10"
+                                        FontSize="16"
                                         Margin="0 3 0 0"
-                                        Height="20">
+                                        Height="30">
                                 </Label>
-                                <Label  Margin="0 0 0 0"
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
                                         FontSize="16"
                                         Foreground="{DynamicResource Gradient}"
                                         FontWeight="Bold"
@@ -130,13 +151,17 @@
                         </Grid>
 
                     </Border>
-                    <Border Style="{DynamicResource TopBanners}">
+                    <Border Style="{DynamicResource TopBanners}"
+                            Margin="5 0"
+                            Width="300"
+                            Height="80"
+                            >
                         <Border.Effect>
                             <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
                         </Border.Effect>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Border Grid.Column="0"
@@ -144,18 +169,21 @@
                                     Margin="8"
                                     CornerRadius="10"
                                     >
-                                <Path Margin="10 5 0 0"                                      
+                                <Path Width="40"
+                                      Height="40"
+                                      Stretch="Uniform"
                                       Fill="{DynamicResource PrimaryBackground}"
                                       Data="{DynamicResource SearchIcon}"/>
                             </Border>
                             <StackPanel Grid.Column="1">
                                 <Label  Content="Not Active Dep"
                                         Foreground="{DynamicResource GreyText}"
-                                        FontSize="10"
+                                        FontSize="16"
                                         Margin="0 3 0 0"
-                                        Height="20">
+                                        Height="30">
                                 </Label>
-                                <Label  Margin="0 0 0 0"
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
                                         FontSize="16"
                                         Foreground="{DynamicResource Gradient}"
                                         FontWeight="Bold"
@@ -170,14 +198,21 @@
                 <Grid Grid.Row="1">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="710"/>
-                            <ColumnDefinition Width="220"/>
+                            <ColumnDefinition Width="630"/>
+                            <ColumnDefinition Width="450"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Border Grid.Column="1" 
                                 Background="{DynamicResource PrimaryBackground}"
                                 CornerRadius="15"
-                                Margin="0 10 0 10">
+                                Margin="0 10 0 10"
+                                BorderBrush="{DynamicResource GreyBorder}"
+                                BorderThickness="1">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="0.1"
+                                              Opacity="0.5"
+                                              />
+                            </Border.Effect>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="40"/>
@@ -190,7 +225,11 @@
                                           Height="30"
                                       Grid.Column="0"
                                       Data="{DynamicResource SearchICon2}"/>
-                                <TextBox Grid.Column="1" x:Name="Search" Margin="0 10 0 10" Width="150">
+                                <TextBox Grid.Column="1" x:Name="Search"
+                                         Margin="0 20 0 10" Width="300"
+                                         FontSize="16"
+                                         BorderThickness="0"
+                                         >
 
                                 </TextBox>
                             </Grid>
@@ -198,16 +237,20 @@
                         <Button x:Name="BtnCreate"
                                 Style="{DynamicResource CreateButton}"
                                 Content="Create"
-                                Grid.Column="2"                                                                                         
-                                Margin="10 10 80 10"
+                                Grid.Column="2"     
+                                Width="120"
+                                Margin="0 10 0 10"
                                 Click="MouseCreateClick"
                                 />
+                        
                     </Grid>
                 </Grid>
+                <ScrollViewer Grid.Row="2" Margin="0" Padding="0">
                 <WrapPanel  x:Name="MainWP"
-                        Grid.Row="2">
+                        >
                     
                 </WrapPanel>
+                </ScrollViewer>
             </Grid>
         </Border>
     </Grid>

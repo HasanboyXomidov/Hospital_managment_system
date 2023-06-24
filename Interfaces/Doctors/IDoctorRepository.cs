@@ -10,5 +10,5 @@ namespace Hospital_managment_system.Interfaces.Doctors;
 
 public interface IDoctorRepository : IRepository<Doctor,DoctorsViewModel>
 {
-
+    public Task<int> CountDoctor();
 }

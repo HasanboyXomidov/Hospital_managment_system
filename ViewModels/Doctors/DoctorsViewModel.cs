@@ -24,5 +24,6 @@ public sealed class DoctorsViewModel: Auditable
     public string department { get; set; }
     public int room { get; set; }
     public string description { get; set; }=string.Empty;    
+    public string passport_image_path { get; set; }
 
 }

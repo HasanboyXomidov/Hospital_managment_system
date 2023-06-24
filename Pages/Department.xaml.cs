@@ -31,6 +31,7 @@ namespace Hospital_managment_system.Pages
             InitializeComponent();
             this._departmentRepository = new DepartmentRepository();
         }
+        
 
         private void MouseCreateClick(object sender, RoutedEventArgs e)
         {
@@ -40,20 +41,32 @@ namespace Hospital_managment_system.Pages
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            
             Paginations paginations = new Paginations()
             {
                 PageNumber=1,
                 PageSize=30
             };
+            var department_for_counting = await _departmentRepository.GetTotalDepartment();
+            TotalDepartmentlbl.Content = department_for_counting.ToString();
+
+
 
             var departments = await _departmentRepository.GetAllAsync(paginations);
-            foreach( var department in departments )
+            TopDepartmentlbl.Content= departments[0].name.ToString();
+            int countActive = 0;
+            int countNotActive = 0;
+            foreach ( var department in departments )
             {
+                if(department.is_active==true) countActive++;
+                else countNotActive++;
                 DepartmentViewUserControl departmentViewUserControl = new DepartmentViewUserControl();
                 departmentViewUserControl.setData(department);
                 MainWP.Children.Add(departmentViewUserControl);
 
             }
+            ActivelDepartmentlbl.Content=countActive.ToString();
+            NotActiveDepartmentlbl.Content= countNotActive.ToString();
         }
     }
 }

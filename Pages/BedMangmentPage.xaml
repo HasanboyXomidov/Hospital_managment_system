@@ -5,14 +5,252 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Hospital_managment_system.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="BedMangmentPage">
+      Loaded="Page_Loaded"
+      Height="800" Width="1300"
+      Title="Department">
 
-    <Grid>
-        <Label FontSize="50"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center">BedMangement</Label>
+    <Grid >
+        <Border Margin="20,15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
+                <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+                    <Border Style="{DynamicResource TopBanners}" 
+                            Width="300"
+                            Height="80"
+                            Margin="5 0">
 
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1" 
+                                              Opacity="0.5"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    
+                                    >
+                                <Path Height="40" Width="40"
+                                      Stretch="Uniform"
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Reserved Bed"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="16"
+                                        Margin="0 3 0 0"
+                                        Height="30">
+                                </Label>
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"                                        
+                                        x:Name="Reservedroom_lbl">
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <Border Style="{DynamicResource TopBanners}"
+                            Width="300"
+                            Height="80"
+                            Margin="5 0">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1"
+                                              Opacity="0.5"
+                                              />
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    >
+                                <Path Height="40" Width="40"
+                                      Stretch="Uniform"
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Free Bed"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="16"
+                                        Margin="0 3 0 0"
+                                        Height="30">
+                                </Label>
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"
+                                        x:Name="FreeBed_lbl">
+
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+
+                    </Border>
+                    <Border Style="{DynamicResource TopBanners}"
+                            Width="300"
+                            Height="80"
+                            Margin="5 0">
+
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    >
+                                <Path Width="40"                                    
+                                      Height="40"
+                                      Stretch="Uniform"
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Room Types"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="16"
+                                        Margin="0 3 0 0"
+                                        Height="30">
+                                </Label>
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"
+                                        
+                                        x:Name="RoomTypes_lbl">
+                                </Label>
+                            </StackPanel>
+
+                        </Grid>
+
+                    </Border>
+                    <Border Style="{DynamicResource TopBanners}"
+                            Margin="5 0"
+                            Width="300"
+                            Height="80"
+                            >
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    >
+                                <Path Width="40"
+                                      Height="40"
+                                      Stretch="Uniform"
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Popular Room Types"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="16"
+                                        Margin="0 3 0 0"
+                                        Height="30">
+                                </Label>
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"
+                                        
+                                        x:Name="PopularRoomTypes_lbl">
+                                    
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+
+                    </Border>
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="630"/>
+                            <ColumnDefinition Width="450"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Button Width="80"
+                                    x:Name="AllButton"
+                                    Margin="10 10"></Button>
+                            <Button Width="80"
+                                    x:Name="LuxeButton"
+                                    Margin="10 10"></Button>
+                            <Button Width="80"
+                                    x:Name="UsualButton"
+                                    Margin="10 10"></Button>-->
+                            <RadioButton Style="{DynamicResource RoomSort}"
+                                         Content="All"
+                                         FontSize="16">
+                                
+                            </RadioButton>
+                            <RadioButton Style="{DynamicResource RoomSort}"
+                                         Content="Luxe"
+                                         FontSize="16">
+
+                            </RadioButton>
+                            <RadioButton Style="{DynamicResource RoomSort}"
+                                         Content="Usual"
+                                         FontSize="16">
+
+                            </RadioButton>
+                            
+                        </StackPanel>
+                        
+                        <Button x:Name="BtnCreate"
+                                Style="{DynamicResource CreateButton}"
+                                Content="Create"
+                                Grid.Column="2"     
+                                Width="120"
+                                Margin="0 10 0 10"
+                                Click="BtnCreate_Click"
+                                />
+
+                    </Grid>
+                </Grid>
+                <ScrollViewer Grid.Row="2" Margin="0" Padding="0">
+                    <WrapPanel  x:Name="MainWP"
+                        >
+
+                    </WrapPanel>
+                </ScrollViewer>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

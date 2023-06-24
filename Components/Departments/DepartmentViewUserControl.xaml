@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hospital_managment_system.Components.Departments"
              mc:Ignorable="d" 
-             Height="250" Width="230"
-             Margin="15">
+             Height="260" Width="300"
+             Margin="5"
+             >
     <Grid 
           >
         <Border BorderBrush="{DynamicResource GreyBorder}"
@@ -18,9 +19,9 @@
             </Border.Effect>
             <Grid Margin="10">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="65"/>
                     <RowDefinition Height="45"/>
-                    <RowDefinition Height="95"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="140"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
@@ -51,7 +52,7 @@
                 </Label>
                 <TextBlock Margin="10 0 10 0"
                            Grid.Row="2"
-                           Height="85"
+                           Height="130"
                            x:Name="tbDescription"
                            Foreground="{DynamicResource GreyText}"
                            TextWrapping="Wrap"

@@ -5,14 +5,53 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Hospital_managment_system.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="DoctorPage">
+      Loaded="Page_Loaded"
+      Height="800" Width="1300"
+      Title="Department">
 
-    <Grid>
-        <Label FontSize="50"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center">
-            Doctor</Label>
+    <Grid >
+        <Border Margin="20,15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
+                
+                <Grid Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="710"/>
+                            <ColumnDefinition Width="220"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label         
+                            
+                            x:Name="CountDoctorlbl"                                                                    
+                                        FontSize="16"
+                                        Margin="0 3 0 0"
+                                        FontWeight="Bold"
+                                        Foreground="{DynamicResource Gradient}"
+                                        Height="40">
+                        </Label>
+                        <Button x:Name="BtnCreate"
+                                Style="{DynamicResource CreateButton}"
+                                Content="Create"
+                                Grid.Column="2"    
+                                Width="120"
+                                Margin="90 0 0 20"
+                                Click="BtnCreate_Click"
+                                />
+                    </Grid>
+                </Grid>
+                <ScrollViewer Grid.Row="1">
+                    <WrapPanel  x:Name="MainWP"
+                        >
+
+                    </WrapPanel>
+                </ScrollViewer>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

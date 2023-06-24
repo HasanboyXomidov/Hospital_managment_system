@@ -9,5 +9,6 @@ namespace Hospital_managment_system.Interfaces.Departments;
 
 public interface IDepartmentRepository:IRepository<Department,Department>
 {
-
+    public Task<int> GetTotalDepartment();
+    
 }

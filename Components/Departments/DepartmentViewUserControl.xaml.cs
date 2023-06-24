@@ -40,7 +40,7 @@ namespace Hospital_managment_system.Components.Departments
                 IsActive_lbl.Content = "Active";               
             } else IsActive_lbl.Content = "Not Active";
             tbDescription.Text = department.description;
-
+            
 
         }
 

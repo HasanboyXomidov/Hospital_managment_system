@@ -7,8 +7,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />-->
+                <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />-->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
                 <!--This is for background-->
                 <ResourceDictionary Source="/Themes/LightTheme.xaml"/>
@@ -25,6 +25,19 @@
                 <!--Icon styles-->
                 <ResourceDictionary Source="/Assets/Icons/Icons.xaml"/>
                 <!--Icon styles-->
+                
+                <!--Label styles-->
+                <ResourceDictionary Source="/Styles/LabelStyles.xaml"/>
+                <!--Label styles-->
+                
+                <!--Logo Styles-->
+                <ResourceDictionary Source="/Assets/Logos/LogoChanges.xaml"/>
+                <!--Logo Styles-->
+
+                <!--Date Styles-->
+                <ResourceDictionary Source="/Styles/DateStyle.xaml"/>
+                <!--Date Styles-->
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

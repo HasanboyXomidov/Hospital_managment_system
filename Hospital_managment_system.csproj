@@ -15,6 +15,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\Icons\delete %282%29.png" />
+    <None Remove="Assets\Icons\pencil %281%29.png" />
     <None Remove="Assets\Icons\view.png" />
     <None Remove="Assets\Images\healthcare.png" />
     <None Remove="Assets\Images\healthcare_blue.png" />
@@ -26,6 +28,8 @@
     <None Remove="Assets\Logos\WhiteLogo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Icons\delete (2).png" />
+    <Resource Include="Assets\Icons\pencil (1).png" />
     <Resource Include="Assets\Icons\view.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -47,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Sounds\" />
-    <Folder Include="Pages\DepartmentPages\" />
+    <Folder Include="Components\Others\" />
   </ItemGroup>
   <ItemGroup Condition="$(VisualStudioVersion) == '17.0'">
     <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">

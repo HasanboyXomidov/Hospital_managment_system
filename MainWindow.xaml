@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:Hospital_managment_system"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        
+        Icon="/Assets/Images/healthcare.png"
         WindowState="Maximized"
-        Title="MainWindow" Height="800" 
-        Width="1100"        
+        Title="Hospital Managment System" 
+        Height="890" 
+        Width="1300"
         
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource SecondaryBackground}"
@@ -19,6 +20,7 @@
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        
         <Border 
             BorderBrush="{DynamicResource GreyBorder}"
                 BorderThickness="0 0 2 0"   
@@ -97,8 +99,14 @@
                              Tag="{DynamicResource ComplaintIcon}"
                              Click="rbComplaint_Click">
                 </RadioButton>
+                <RadioButton x:Name="rbOthers" 
+                             Content="Others"
+                             Style="{DynamicResource MenuButton}"
+                             Tag="{DynamicResource OthersIcon}"
+                             Click="rbOthers_Click_1">
+                </RadioButton>
                 <Border 
-                        Margin="0 50 0 0"
+                        Margin="0 10 0 0"
                         Height="120"
                         Width="220"
                         Background="{DynamicResource Gradient}"
@@ -141,6 +149,7 @@
             </StackPanel>
         </Border>
         
+        
         <Grid 
             
             Grid.Column="1"
@@ -156,6 +165,14 @@
                 
                 <StackPanel Orientation="Horizontal">
                     <!--This is top bar -->
+                    <Label x:Name="MenuNameInciactorlbl"
+                           Width="200"
+                           Height="40"
+                           Margin="20 5 0 10"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource Gradient}"
+                           ></Label>
                 </StackPanel>
             </Border>
             <Border Grid.Row="1"

@@ -2,14 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="PrimaryBackground" Color="#ffff"></SolidColorBrush>
     <SolidColorBrush x:Key="SecondaryBackground" Color="#EAEAEA"></SolidColorBrush>
-    <SolidColorBrush x:Key="GreyBorder" Color="#999"></SolidColorBrush>
+    
     <SolidColorBrush x:Key="DarkBlue" Color="#334D66"></SolidColorBrush>
     <LinearGradientBrush x:Key="Gradient">
         <GradientStop Color="#334D66" Offset="0"/>
         <GradientStop Color="#131626" Offset="1"/>
     </LinearGradientBrush>
-    <SolidColorBrush x:Key="GreyText" Color="#808080"></SolidColorBrush>
+    <SolidColorBrush x:Key="GreyText" Color="#333333"></SolidColorBrush>
     <SolidColorBrush x:Key="BlueButton" Color="#18a3ff"></SolidColorBrush>
-
     <SolidColorBrush x:Key="Red" Color="#cc1414"></SolidColorBrush>
+    <SolidColorBrush x:Key="MouseoverFalseForEditBut" Color="#BBBBBB"/>
+    <SolidColorBrush x:Key="GreyBorder" Color="#999"></SolidColorBrush>
 </ResourceDictionary>   

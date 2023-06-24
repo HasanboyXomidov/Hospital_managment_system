@@ -12,7 +12,7 @@ class TimeHelper
      public static DateTime GetDateTime()
     {
         var dTime = DateTime.UtcNow;
-        dTime.AddHours(TimeConstants.UTC); 
+        //dTime.AddHours(TimeConstants.UTC); 
         return dTime;                            
 
     }

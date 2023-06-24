@@ -97,6 +97,10 @@ namespace Hospital_managment_system
             PageNavigator.Content = department;
         }
 
-
+        private void rbOthers_Click_1(object sender, RoutedEventArgs e)
+        {
+            OthersPage othersPage = new OthersPage();
+            PageNavigator.Content = othersPage;
+        }
     }
 }
