@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace Hospital_managment_system.Interfaces.RoomTypes;
 
-public interface IRoomTypes : IRepository<RoomType,RoomType>
+public interface IRoomTypesRepository : IRepository<RoomType,RoomType>
 {
-
+    public Task<int> BedroomCount();
+    public Task<int> FreeBedroomCount();
+    
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hospital_managment_system"
         mc:Ignorable="d"
-        ResizeMode="CanMinimize"
+       ResizeMode="CanMinimize"
         Icon="/Assets/Images/healthcare.png"
         WindowState="Maximized"
         Title="Hospital Managment System" 
@@ -162,18 +162,61 @@
             <Border Grid.Row="0"                 
                     Background="{DynamicResource PrimaryBackground}"                    
                     >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="700"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="85"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="0"                                    
+                                    
+                                    Style="{DynamicResource settingsbut}"
+                                    Tag="{DynamicResource SettingsIcon22}"
+                                        
+                                        >
+                                    
+                                </Button>
+                            <Border Background="{DynamicResource GreyBorder}"
+                                    Grid.Column="1"
+                                    CornerRadius="50"
+                                    Margin="15"
+                                    >
+                                <Image Source="/Assets/Icons/user.png"/>
+                            </Border>
+                            <Grid Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0"
+                                       Content="Dc"
+                                       FontSize="16"
+                                       FontWeight="SemiBold"
+                                       Foreground="{DynamicResource Gradient}"
+                                       Margin="5 20 0 0"
+                                       Padding="0"></Label>
+                                <Label Grid.Row="1"
+                                       Content="Admin"
+                                       FontSize="16"
+                                       Padding="0"
+                                       Margin="5 -5 0 10"
+                                       />
+                            </Grid>
+                            
+                            
+                        </Grid>
+                    </Border>
+                    
+                </Grid>
                 
-                <StackPanel Orientation="Horizontal">
-                    <!--This is top bar -->
-                    <Label x:Name="MenuNameInciactorlbl"
-                           Width="200"
-                           Height="40"
-                           Margin="20 5 0 10"
-                           FontSize="16"
-                           FontWeight="SemiBold"
-                           Foreground="{DynamicResource Gradient}"
-                           ></Label>
-                </StackPanel>
             </Border>
             <Border Grid.Row="1"
                 Background="{DynamicResource SecondaryBackground}">

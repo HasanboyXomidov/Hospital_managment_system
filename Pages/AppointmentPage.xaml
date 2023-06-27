@@ -5,13 +5,374 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Hospital_managment_system.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AppointmentPage">
+      Title="AppointmentPage"
+      Height="800" Width="1300">
 
-    <Grid>
-        <Label FontSize="50"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center">Appointment</Label>
-               
+    <Grid >
+        <Border Margin="20,15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+                    <Border Style="{DynamicResource TopBanners}" 
+                            Width="300"
+                            Height="80"
+                            Margin="5 0">
+
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1" 
+                                              Opacity="0.5"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    
+                                    >
+                                <Path Height="40" Width="40"
+                                      Stretch="Uniform"
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Todays Total Appointment"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="16"
+                                        Margin="0 3 0 0"
+                                        Height="30">
+                                </Label>
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"                                        
+                                        x:Name="Todays_Total_Appointment">
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <Border Style="{DynamicResource TopBanners}"
+                            Width="300"
+                            Height="80"
+                            Margin="5 0">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1"
+                                              Opacity="0.5"
+                                              />
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    >
+                                <Path Height="40" Width="40"
+                                      Stretch="Uniform"
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Yesterdays Total Appointment"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="16"
+                                        Margin="0 3 0 0"
+                                        Height="30">
+                                </Label>
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"
+                                        x:Name="Yesterday_Total_Appointment">
+
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+
+                    </Border>
+
+                    <Border Style="{DynamicResource TopBanners}"
+                            Margin="5 0"
+                            Width="300"
+                            Height="80"
+                            >
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    >
+                                <Path Width="40"
+                                      Height="40"
+                                      Stretch="Uniform"
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Weekly All Appointments"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="16"
+                                        Margin="0 3 0 0"
+                                        Height="30">
+                                </Label>
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"
+                                        
+                                        x:Name="lblAllRooms">
+
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+
+                    </Border>
+                    <Border Style="{DynamicResource TopBanners}"
+                            Margin="5 0"
+                            Width="300"
+                            Height="80"
+                            >
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0.1" Opacity="0.5"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0"
+                                    Background="{DynamicResource Gradient}"
+                                    Margin="8"
+                                    CornerRadius="10"
+                                    >
+                                <Path Width="40"
+                                      Height="40"
+                                      Stretch="Uniform"
+                                      Fill="{DynamicResource PrimaryBackground}"
+                                      Data="{DynamicResource SearchIcon}"/>
+                            </Border>
+                            <StackPanel Grid.Column="1">
+                                <Label  Content="Monthly All Appointments"
+                                        Foreground="{DynamicResource GreyText}"
+                                        FontSize="16"
+                                        Margin="0 3 0 0"
+                                        Height="30">
+                                </Label>
+                                <Label  Margin="5 5 0 0"
+                                        Padding="0"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource Gradient}"
+                                        FontWeight="Bold"
+                                        Height="25"
+                                        
+                                        x:Name="Monthly_Total_Appointments">
+
+                                </Label>
+                            </StackPanel>
+                        </Grid>
+
+                    </Border>
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="630"/>
+                            <ColumnDefinition Width="450"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal" Grid.Column="0">
+
+                            <RadioButton Style="{DynamicResource RoomSort}"
+                                         Content="Today"
+                                         FontSize="16">
+
+                            </RadioButton>
+                            <RadioButton Style="{DynamicResource RoomSort}"
+                                         Content="Yesterday"
+                                         FontSize="16">
+
+                            </RadioButton>
+                            <RadioButton Style="{DynamicResource RoomSort}"
+                                         Content="Weekly"
+                                         FontSize="16">
+
+                            </RadioButton>
+                            <RadioButton Style="{DynamicResource RoomSort}"
+                                         Content="Monthly"
+                                         FontSize="16">
+                            </RadioButton>
+                            <RadioButton Style="{DynamicResource RoomSort}"
+                                         Content="All"
+                                         FontSize="16">
+                            </RadioButton>
+
+                        </StackPanel>
+                        <Border Grid.Column="1" 
+                                Background="{DynamicResource PrimaryBackground}"
+                                CornerRadius="15"
+                                Margin="0 10 0 10"
+                                BorderBrush="{DynamicResource GreyBorder}"
+                                BorderThickness="1">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="0.1"
+                                              Opacity="0.5"
+                                              />
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Path Fill="{DynamicResource Gradient}"                                      
+                                      Margin="20 5 0 0"
+                                      Width="30"
+                                          Height="30"
+                                      Grid.Column="0"
+                                      Data="{DynamicResource SearchICon2}"/>
+                                <TextBox Grid.Column="1" x:Name="Search"
+                                         Margin="0 20 0 10" Width="300"
+                                         FontSize="16"
+                                         BorderThickness="0"
+                                         >
+
+                                </TextBox>
+                            </Grid>
+                        </Border>
+
+                        <Button x:Name="BtnCreate"
+                                Style="{DynamicResource CreateButton}"
+                                Content="Create"
+                                Grid.Column="2"     
+                                Width="120"
+                                Margin="0 10 0 10"
+                                Click="BtnCreate_Click"
+                                />
+
+                    </Grid>
+                </Grid>
+                <Border Grid.Row="2"
+                        Margin="0 1 15 1"
+                        CornerRadius="5"
+                        Background="{DynamicResource PrimaryBackground}">
+                    <Grid 
+                      >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="65"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0"
+                           Content="Queue"
+                           FontSize="16"
+                           Foreground="{DynamicResource Gradient}"
+                           FontWeight="SemiBold"
+                           Padding="0"
+                           Margin="0 10"
+                           HorizontalAlignment="Center">
+
+                        </Label>
+                        <Label Grid.Column="1"
+                           Content="Name"
+                           FontSize="16"
+                           Foreground="{DynamicResource Gradient}"
+                           FontWeight="SemiBold"
+                           Padding="0"
+                           Margin="0 10"
+                           HorizontalAlignment="Center">
+
+                        </Label>
+                        <Label Grid.Column="2"
+                           Content="Gender"
+                           FontSize="16"
+                           Foreground="{DynamicResource Gradient}"
+                           FontWeight="SemiBold"
+                           Padding="0"
+                           Margin="0 10"
+                           HorizontalAlignment="Center">
+
+                        </Label>
+                        <Label Grid.Column="3"
+                           Content="Phone"
+                           FontSize="16"
+                           Foreground="{DynamicResource Gradient}"
+                           FontWeight="SemiBold"
+                           Padding="0"
+                           Margin="0 10"
+                           HorizontalAlignment="Center">
+
+                        </Label>
+                        <Label Grid.Column="4"
+                           Content="Consulting Doctor"
+                           FontSize="16"
+                           Foreground="{DynamicResource Gradient}"
+                           FontWeight="SemiBold"
+                           Padding="0"
+                           Margin="0 10"
+                           HorizontalAlignment="Center">
+
+                        </Label>
+                        <Label Grid.Column="5"
+                           Content="Visit Time"
+                           FontSize="16"
+                           Foreground="{DynamicResource Gradient}"
+                           FontWeight="SemiBold"
+                           Padding="0"
+                           Margin="0 10"
+                           HorizontalAlignment="Center">
+
+                        </Label>
+                        <Label Grid.Column="6"
+                           Content="Action"
+                           FontSize="16"
+                           Foreground="{DynamicResource Gradient}"
+                           FontWeight="SemiBold"
+                           Padding="0"
+                           Margin="0 10"
+                           HorizontalAlignment="Center">
+
+                        </Label>
+
+                    </Grid>
+                </Border>
+                <ScrollViewer Grid.Row="3" Margin="0" Padding="0">
+                    <WrapPanel  x:Name="MainWP" Margin="0 0 0 20"
+                        >
+
+                    </WrapPanel>
+                </ScrollViewer>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

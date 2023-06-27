@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="Hospital_managment_system.Components.Appointments.AppointmentsViewUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hospital_managment_system.Components.Appointments"
+             mc:Ignorable="d" 
+           Height="45" 
+             Margin="1"
+             Width="1250">
+    <Grid>
+        <Border Background="{DynamicResource PrimaryBackground}"
+            CornerRadius="5">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                   FontWeight="SemiBold"
+                   x:Name="lblqueue"
+            FontSize="16"
+            Foreground="{DynamicResource GreyBorder}"
+            HorizontalAlignment="Center"
+            Margin="0 5"
+                Content="12">
+                </Label>
+
+                <Label Grid.Column="1"
+                   FontWeight="SemiBold"
+                   x:Name="lblname"
+            FontSize="16"
+            Foreground="{DynamicResource GreyBorder}"
+            HorizontalAlignment="Center"
+            Margin="0 5"
+                Content="Lebron James">
+                </Label>
+                <Label Grid.Column="2"
+                   x:Name="lblGender"
+                   FontSize="16"
+                   FontWeight="SemiBold"
+            
+            HorizontalAlignment="Center"
+            Margin="0 5"
+                       Foreground="{DynamicResource GreyBorder}"
+                Content="Male 35">
+                   
+                </Label>
+                <Label Grid.Column="3"
+                   x:Name="lblphone"
+                   FontWeight="SemiBold"
+                   FontSize="16"
+            Foreground="{DynamicResource GreyBorder}"
+            HorizontalAlignment="Center"
+            Margin="0 5"
+                   
+                Content="+998902723595"></Label>
+                <Label Grid.Column="4"
+                   FontSize="16"
+                   x:Name="lbldoctorname"
+            FontWeight="SemiBold"
+            HorizontalAlignment="Center"
+            Margin="0 5"
+                Content="Uilyam Johnson"
+                Foreground="{DynamicResource GreyBorder}">
+                   
+                </Label>
+                <Label Grid.Column="5"
+                      FontSize="16"
+                   x:Name="lbltime"
+                   FontWeight="SemiBold"
+            Foreground="{DynamicResource GreyBorder}"
+            HorizontalAlignment="Center"
+            Margin="0 5"
+                Content="6/25/2023 07:10:12">
+
+                </Label>
+                <Button Grid.Column="6" Background="{DynamicResource PrimaryBackground}"                    
+                    Click="Button_Click"
+                    Tag="{DynamicResource OthersIcon2}"
+                    Style="{DynamicResource EditButton2}"
+                                Padding="0"
+                                Width="40"
+                                Height="40" >
+                </Button>
+
+
+            </Grid>
+
+        </Border>
+
+        <Border >
+            <Grid x:Name="grdEditDelete2"
+                  Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1"
+                        x:Name="btnEdit"
+                        BorderBrush="{DynamicResource PrimaryBackground}"
+                        BorderThickness="1"
+                        Background="{DynamicResource PrimaryBackground}"                        
+                        >
+                    <Image Width="25"
+                           Height="25"
+                           Source="/Assets/Icons/pencil (1).png"></Image>
+                </Button>
+                <Button Grid.Column="3"
+                        x:Name="btnDelete"
+                        BorderBrush="{DynamicResource PrimaryBackground}"
+                        BorderThickness="1"
+                        Background="{DynamicResource PrimaryBackground}"                        
+                        >
+                    <Image Width="25"
+                           Height="25"
+                           Source="/Assets/Icons/delete (2).png"></Image>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

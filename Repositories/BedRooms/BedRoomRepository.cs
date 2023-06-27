@@ -32,6 +32,7 @@ public class BedRoomRepository : BaseRepository,IBedRoomsRepository
                 command.Parameters.AddWithValue("description", bedRooms.description);
                 command.Parameters.AddWithValue("created_at", bedRooms.created_at);
                 command.Parameters.AddWithValue("updated_at", bedRooms.updated_at);
+                command.Parameters.AddWithValue("room_number",bedRooms.room_number);
 
                 int result = await command.ExecuteNonQueryAsync();
                 return result;
@@ -97,9 +98,46 @@ public class BedRoomRepository : BaseRepository,IBedRoomsRepository
 
     //}
 
-    public Task<IList<BedRoomsViewModel>> GetAllAsync(Paginations @params)
+    public async Task<IList<BedRoomsViewModel>> GetAllAsync(Paginations @params)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _connection.OpenAsync();
+            List<BedRoomsViewModel> list = new List<BedRoomsViewModel>();
+            string query = "select * from bed_rooms_view order by id " +
+                $"offset {(@params.PageNumber-1)*@params.PageSize} " +
+                $"limit {@params.PageSize}";
+
+            await using ( var command = new NpgsqlCommand(query,_connection) )
+            {
+                await using (var reader = command.ExecuteReader())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        BedRoomsViewModel viewModel = new BedRoomsViewModel();
+                        viewModel.Id = reader.GetInt64(0);
+                        viewModel.name = reader.GetString(1);                                                
+                        viewModel.room_type = reader.GetString(2);
+                        viewModel.Room_cost = reader.GetFloat(3);
+                        viewModel.room_number = reader.GetInt32(4);
+                        viewModel.capacity = reader.GetInt32(5);
+                        viewModel.is_free = reader.GetBoolean(6);
+                        viewModel.description = reader.GetString(7);
+                        viewModel.created_at = reader.GetDateTime(8);
+                        viewModel.updated_at = reader.GetDateTime(9);
+
+                        list.Add(viewModel);
+                    }
+                }
+            }
+            return list;
+        }
+        catch 
+        {
+            return new List<BedRoomsViewModel>();
+
+        }
+        finally { await _connection.CloseAsync(); }
     }
 
     public Task<BedRoomsViewModel> GetAsync(long id)
@@ -107,9 +145,38 @@ public class BedRoomRepository : BaseRepository,IBedRoomsRepository
         throw new NotImplementedException();
     }
 
-    public Task<int> UpdateAsync(long id, BedRoom editObj)
+    public async Task<int> UpdateAsync(long id, BedRoom ob)
     {
-        throw new NotImplementedException();
+        try 
+        {
+            await _connection.OpenAsync();
+            string query = "UPDATE public.bed_rooms " +
+                "SET name=@name, room_type_id=@room_type_id, capacity=@capacity, is_free=@is_free, description=@description, created_at=@created_at, updated_at=@updated_at, room_number=@room_number " +
+                "WHERE id=@id;";
+            await using (var command = new NpgsqlCommand(query, _connection))
+            {
+                command.Parameters.AddWithValue("name",ob.Name );
+                command.Parameters.AddWithValue("room_type_id", ob.room_type_id);
+                command.Parameters.AddWithValue("capacity", ob.capacity);
+                command.Parameters.AddWithValue("is_free", ob.is_empty);
+                command.Parameters.AddWithValue("description", ob.description);
+                command.Parameters.AddWithValue("created_at", ob.created_at);
+                command.Parameters.AddWithValue("updated_at", ob.updated_at);
+                command.Parameters.AddWithValue("room_number", ob.room_number);
+                command.Parameters.AddWithValue("id", id);
+
+                var result = await command.ExecuteNonQueryAsync();
+                return result;
+            }
+        }
+        catch 
+        {
+            return 0;
+        }
+        finally
+        {
+            await _connection.CloseAsync();
+        }
     }
 
     

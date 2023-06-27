@@ -24,7 +24,7 @@ namespace Hospital_managment_system.Windows.OthersPage
     /// </summary>
     public partial class RoomTypeCreateWindow : Window
     {
-        private readonly IRoomTypes _roomTypes;
+        private readonly IRoomTypesRepository _roomTypes;
         public RoomTypeCreateWindow()
         {
             InitializeComponent();

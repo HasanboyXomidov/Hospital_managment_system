@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Hospital_managment_system.Pages
+namespace Hospital_managment_system.Windows.PatientsDoctorsPage
 {
     /// <summary>
-    /// Interaction logic for AppointmentPage.xaml
+    /// Interaction logic for Appointment_Window_Update.xaml
     /// </summary>
-    public partial class AppointmentPage : Page
+    public partial class Appointment_Window_Update : Window
     {
-        public AppointmentPage()
+        public Appointment_Window_Update()
         {
             InitializeComponent();
-        }
-
-        private void BtnCreate_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

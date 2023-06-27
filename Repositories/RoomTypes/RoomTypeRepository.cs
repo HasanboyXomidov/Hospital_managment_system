@@ -7,11 +7,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace Hospital_managment_system.Repositories.RoomTypes;
 
-public class RoomTypeRepository : BaseRepository, IRoomTypes
+public class RoomTypeRepository : BaseRepository, IRoomTypesRepository
 {
+    public async Task<int> BedroomCount()
+    {
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "select count(*) from bed_rooms_view ;";
+            await using (var command = new NpgsqlCommand(query, _connection))
+            {
+                await using (var reader = await command.ExecuteReaderAsync()) 
+                {
+                    int result = 0;
+                    if (await  reader.ReadAsync())
+                    {
+                        result = reader.GetInt32(0);
+                    }
+                    return result;
+                }
+            }
+        }
+        catch 
+        {
+            return 0;               
+        }finally { await _connection.CloseAsync(); }
+    }
+
     public async Task<int> CreateAsync(RoomType obj)
     {
         try
@@ -43,9 +69,63 @@ public class RoomTypeRepository : BaseRepository, IRoomTypes
         throw new NotImplementedException();
     }
 
-    public Task<IList<RoomType>> GetAllAsync(Paginations @params)
+    public async Task<int> FreeBedroomCount()
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "select count(is_free) from bed_rooms_view where is_free=true;";
+            await using (var command = new NpgsqlCommand(query, _connection))
+            {
+                await using (var reader = await command.ExecuteReaderAsync())
+                {
+                    int result = 0;
+                    if (await reader.ReadAsync())
+                    {
+                        result = reader.GetInt32(0);
+                    }
+                    return result;
+                }
+            }
+        }
+        catch
+        {
+            return 0;
+        }
+        finally { await _connection.CloseAsync(); }
+    }
+
+    public async Task<IList<RoomType>> GetAllAsync(Paginations @params)
+    {
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "select * from room_type;";
+            List<RoomType> roomTypes = new List<RoomType>();
+            await using (var command = new NpgsqlCommand(query, _connection))
+            {
+                await using (var reader = await command.ExecuteReaderAsync()) 
+                {
+                    while(await  reader.ReadAsync())
+                    {
+                        RoomType roomType = new RoomType();
+                        roomType.Id = reader.GetInt64(0);
+                        roomType.name = reader.GetString(1);
+                        roomType.cost=reader.GetFloat(2);
+                        roomType.created_at=reader.GetDateTime(3);
+                        roomType.updated_at = reader.GetDateTime(4);
+
+                        roomTypes.Add(roomType);
+                    }
+                }
+            }
+                        return roomTypes;
+        }
+        catch 
+        {
+            return  new List<RoomType>();            
+        }
+        finally { await _connection.CloseAsync(); }
     }
 
     public Task<RoomType> GetAsync(long id)

@@ -15,11 +15,12 @@ public sealed class BedRoomsViewModel: Auditable
 
     [MaxLength(50)]
     public string name { get ; set; }    
-    public RoomTypeEnum room_type { get; set; } 
+    public string room_type { get; set; } 
     public float  Room_cost { get; set; }
     public int room_number {  get; set; }
     public int capacity { get; set; }
     public bool is_free { get; set; }
     public string description { get; set; }
+    public long bedroom_id { get; set; }
 
 }

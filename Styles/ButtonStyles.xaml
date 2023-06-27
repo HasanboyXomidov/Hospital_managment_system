@@ -349,7 +349,7 @@
 
                         <!--Button triggers-->
                         <Trigger Property="IsMouseOver" Value="False">
-                            <Setter TargetName="B" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+                            <Setter TargetName="B" Property="Background" Value="{DynamicResource MouseoverFalseForEditBut}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="B" Property="Background" Value="{DynamicResource Gradient}"/>
@@ -363,6 +363,113 @@
                             <Setter TargetName="icon" Property="Fill" Value="{DynamicResource PrimaryBackground}"/>
 
                         </Trigger>
+                        <!--Button triggers-->
+
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="EditButton2" TargetType="Button">
+        <Setter Property="Template">
+
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="EditButtonBorder"
+                        CornerRadius="50"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                               BorderThickness="0"                            
+                            >
+                        <Path x:Name="icon"                                  
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                                  Height="30" Width="20"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Fill="{DynamicResource Gradient}"                                  
+                                  Stretch="Uniform"/>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="EditButtonBorder" Property="Cursor" Value="Hand" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="EditButtonBorder" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="EditButtonBorder" Property="Background" Value="{DynamicResource MouseoverFalseForEditBut}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="EditButtonBorder" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="settingsbut" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Width" Value="45"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0 2 0 2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="B" CornerRadius="10">
+                        <Grid>
+                            
+                            <Path x:Name="icon"
+                                  
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                                  Height="25" Width="25"
+                                  Margin="0 5 0 5"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Fill="{DynamicResource Gradient}"
+                                  
+                                  Stretch="Uniform"/>
+
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="B" Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <!--Icon triggers -->
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="icon" Property="Fill" Value="{DynamicResource GreyBorder}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="icon" Property="Fill" Value="{DynamicResource Gradient}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="icon" Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <!--Icon triggers -->                        
+
+                        <!--Button triggers-->
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="B" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="B" Property="Background" Value="{DynamicResource GreyBorder}"/>
+                        </Trigger>
+
+
+                        <!--<Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="B" Property="Background" Value="{DynamicResource Gradient}"/>
+                            <Setter TargetName="icon" Property="Fill" Value="{DynamicResource PrimaryBackground}"/>
+
+                        </Trigger>-->
                         <!--Button triggers-->
 
 

@@ -40,9 +40,7 @@ namespace Hospital_managment_system.Pages
             doctorCreateWindow.ShowDialog();
         }
         private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-
+        {            
             Paginations paginations = new Paginations()
             {
                 PageNumber = 1,

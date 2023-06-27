@@ -13,19 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Hospital_managment_system.Pages
+namespace Hospital_managment_system.Components.Appointments
 {
     /// <summary>
-    /// Interaction logic for AppointmentPage.xaml
+    /// Interaction logic for AppointmentsViewUserControl.xaml
     /// </summary>
-    public partial class AppointmentPage : Page
+    public partial class AppointmentsViewUserControl : UserControl
     {
-        public AppointmentPage()
+        public AppointmentsViewUserControl()
         {
             InitializeComponent();
         }
 
-        private void BtnCreate_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

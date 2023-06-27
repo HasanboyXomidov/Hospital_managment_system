@@ -17,6 +17,7 @@
   <ItemGroup>
     <None Remove="Assets\Icons\delete %282%29.png" />
     <None Remove="Assets\Icons\pencil %281%29.png" />
+    <None Remove="Assets\Icons\user.png" />
     <None Remove="Assets\Icons\view.png" />
     <None Remove="Assets\Images\healthcare.png" />
     <None Remove="Assets\Images\healthcare_blue.png" />
@@ -30,6 +31,7 @@
   <ItemGroup>
     <Resource Include="Assets\Icons\delete (2).png" />
     <Resource Include="Assets\Icons\pencil (1).png" />
+    <Resource Include="Assets\Icons\user.png" />
     <Resource Include="Assets\Icons\view.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

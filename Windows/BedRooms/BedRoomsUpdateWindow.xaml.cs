@@ -1,11 +1,7 @@
-﻿using Hospital_managment_system.Components.BedRooms;
-using Hospital_managment_system.Entities.BedRooms;
-using Hospital_managment_system.Entities.RoomTypes;
+﻿using Hospital_managment_system.Entities.BedRooms;
 using Hospital_managment_system.Interfaces.BedRooms;
-using Hospital_managment_system.Interfaces.Rooms;
 using Hospital_managment_system.Interfaces.RoomTypes;
 using Hospital_managment_system.Repositories.BedRooms;
-using Hospital_managment_system.Repositories.Rooms;
 using Hospital_managment_system.Repositories.RoomTypes;
 using System;
 using System.Collections.Generic;
@@ -25,28 +21,31 @@ using System.Windows.Shapes;
 namespace Hospital_managment_system.Windows.BedRooms
 {
     /// <summary>
-    /// Interaction logic for BedRoomCreateWindow.xaml
+    /// Interaction logic for BedRoomsUpdateWindow.xaml
     /// </summary>
-    public partial class BedRoomCreateWindow : Window
+    public partial class BedRoomsUpdateWindow : Window        
     {
+        public BedRoom room { get; set; }
+
         private readonly IRoomTypesRepository _roomTypesRepository;
         private readonly IBedRoomsRepository _bedRoomsRepository;
-        public BedRoomCreateWindow()
+        public BedRoomsUpdateWindow()
         {
             InitializeComponent();
             this._roomTypesRepository = new RoomTypeRepository();
             this._bedRoomsRepository = new BedRoomRepository();
+            room = new BedRoom();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            
+
         }
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            BedRoom room = new BedRoom();
+            //BedRoom room = new BedRoom();
             if (!String.IsNullOrEmpty(lblName.Text)) { room.Name = lblName.Text; }
             else { room.Name = "NoName"; }
 
@@ -66,16 +65,27 @@ namespace Hospital_managment_system.Windows.BedRooms
 
             room.description = Descriptiontb.Text;
 
-            var result = await _bedRoomsRepository.CreateAsync(room);
-            if (result > 0){ MessageBox.Show("Successfully created Bed Room"); this.Close();
-            //BedRoomsViewUserControl bedRoomsViewUserControl = new BedRoomsViewUserControl();
-            //    bedRoomsViewUserControl.setData2(room);
-            
-            }
+            room.Id = long.Parse(lblid.Content.ToString());
+
+
+
+            var result = await _bedRoomsRepository.UpdateAsync(room.Id, room);
+            if (result > 0) { MessageBox.Show("Successfully updated Bed Room"); this.Close(); }
             else MessageBox.Show("SomethingWrong");
-            
+
 
             //if()
+        }
+        public void setData(BedRoom bedRoom)
+        {
+            lblName.Text = bedRoom.Name;
+            Capacitylbl.Text = (bedRoom.capacity).ToString();
+            if(bedRoom.is_empty == true) { YesRb.IsChecked = true; }
+            else { YesRb.IsChecked = false;}
+            Room_Numberlbl.Text = (bedRoom.room_number).ToString();
+            Desciption.Text= bedRoom.description;
+            lblid.Content = bedRoom.Id;
+
         }
 
         private void Capacitylbl_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -92,14 +102,14 @@ namespace Hospital_managment_system.Windows.BedRooms
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var roomtyper= await _roomTypesRepository.GetAllAsync(new Utilities.Paginations()
-                {
-                      PageNumber=1,
-                      PageSize=100
-                }
+            var roomtyper = await _roomTypesRepository.GetAllAsync(new Utilities.Paginations()
+            {
+                PageNumber = 1,
+                PageSize = 100
+            }
             );
             RoomTypeCb.ItemsSource = roomtyper;
-
+            
         }
     }
 }

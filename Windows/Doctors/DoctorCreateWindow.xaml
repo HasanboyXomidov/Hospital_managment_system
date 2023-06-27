@@ -204,6 +204,7 @@
                             >
                         <TextBox x:Name="Tel_Numberlbl"                                                          
                             Margin="10"
+                                 PreviewTextInput="Tel_Numberlbl_PreviewTextInput"
                              FontSize="16"
                              BorderBrush="{DynamicResource GreyBorder}"
                              BorderThickness="0"
