@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hospital_managment_system.ViewModels.PatientDoctorV;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,37 @@ namespace Hospital_managment_system.Components.Appointments
     /// </summary>
     public partial class AppointmentsViewUserControl : UserControl
     {
+        public bool button {  get ; set; }=false;
         public AppointmentsViewUserControl()
         {
             InitializeComponent();
+        }                
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (!button) { grdEditDelete2.Visibility = Visibility.Visible; button = true; }
+            else grdEditDelete2.Visibility = Visibility.Hidden; button = false;
+        }
+        public void setData(PatientDoctorViewModel viewModel)
+        {
+            lblqueue.Content = viewModel.patientQueue;
+            lblname.Content = viewModel.patientfio;
+            //lblGender.Content = viewModel.gender_age;
+            lblphone.Content = viewModel.tel_number;
+            lbldoctorname.Content = viewModel.doctorfio;
+            lbltime.Content = viewModel.cur_date;
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click8(object sender, RoutedEventArgs e)
+        {
+            if(!button) { grdEditDelete2.Visibility=Visibility.Visible; button = true; }
+            else grdEditDelete2.Visibility=Visibility.Hidden; button = false;
         }
     }
 }

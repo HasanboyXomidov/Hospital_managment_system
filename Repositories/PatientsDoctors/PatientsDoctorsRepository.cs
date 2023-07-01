@@ -34,6 +34,7 @@ public class PatientsDoctorsRepository : BaseRepository, IPatientDoctorRepositor
                 command.Parameters.AddWithValue("description", obj.description);
                 command.Parameters.AddWithValue("created_at", obj.created_at);
                 command.Parameters.AddWithValue("updated_at", obj.updated_at);
+                command.Parameters.AddWithValue("next_exam", obj.next_exam_day);
 
                 var result = await command.ExecuteNonQueryAsync();
                 return result;
@@ -94,6 +95,40 @@ public class PatientsDoctorsRepository : BaseRepository, IPatientDoctorRepositor
     public Task<PatientDoctorViewModel> GetAsync(long id)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<int> GetCurrentQueue(long doctorId)
+    {
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "select count(*) from patient_doctor " +
+                "where doctor_id=@id " +
+                "and cur_date::date = current_date;";
+            await using(var command = new NpgsqlCommand(query, _connection))
+            {
+                command.Parameters.AddWithValue("id", doctorId);
+                int a = 0;
+                await using (var reader = await command.ExecuteReaderAsync()) 
+                {
+                    if(await  reader.ReadAsync())
+                    {
+                        
+                        
+                    }
+                    return a;
+                }
+
+            }
+        }
+        catch 
+        {
+            return 0;            
+        }
+        finally
+        {
+            await _connection.CloseAsync();
+        }
     }
 
     public Task<int> UpdateAsync(long id, PatientDoctor editObj)

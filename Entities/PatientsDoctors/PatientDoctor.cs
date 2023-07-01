@@ -8,6 +8,7 @@ namespace Hospital_managment_system.Entities.PatientsDoctors;
 
 public sealed class PatientDoctor: Auditable
 {
+    //public int ID { get; set; }
     public long patient_id { get; set; }
     public long doctor_id { get; set; }
     public int patient_queue { get ; set; }

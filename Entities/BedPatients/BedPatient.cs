@@ -10,7 +10,7 @@ namespace Hospital_managment_system.Entities.BedPatients;
 public sealed class BedPatient: Human
 {
     public DateTime come_time { get; set; }
-    public DateTime leave_date { get; set;}
+    public DateOnly leave_date { get; set;}
     public long bed_room_id { get; set; }    
     [MaxLength(50)]
     public string allergies {  get; set; }  = string.Empty;

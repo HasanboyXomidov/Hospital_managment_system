@@ -45,7 +45,7 @@ namespace Hospital_managment_system.Windows.BedRooms
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            //BedRoom room = new BedRoom();
+            
             if (!String.IsNullOrEmpty(lblName.Text)) { room.Name = lblName.Text; }
             else { room.Name = "NoName"; }
 
@@ -61,7 +61,12 @@ namespace Hospital_managment_system.Windows.BedRooms
             if (!String.IsNullOrEmpty(Room_Numberlbl.Text)) { room.room_number = int.Parse(Room_Numberlbl.Text); }
             else room.room_number = 0;
 
-            room.room_type_id = (long)RoomTypeCb.SelectedValue;
+            if (RoomTypeCb.SelectedValue == null) room.room_type_id = 1;
+            else
+            {
+                room.room_type_id = (long)RoomTypeCb.SelectedValue;
+            }
+            
 
             room.description = Descriptiontb.Text;
 
@@ -102,6 +107,7 @@ namespace Hospital_managment_system.Windows.BedRooms
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
             var roomtyper = await _roomTypesRepository.GetAllAsync(new Utilities.Paginations()
             {
                 PageNumber = 1,

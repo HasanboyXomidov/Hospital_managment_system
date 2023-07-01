@@ -10,5 +10,5 @@ namespace Hospital_managment_system.Interfaces.Patient_Doctors;
 
 public interface IPatientDoctorRepository:IRepository<PatientDoctor,PatientDoctorViewModel>
 {
-
+    public Task<int> GetCurrentQueue(long queue);
 }

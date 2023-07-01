@@ -1,23 +1,24 @@
-﻿<Window x:Class="Hospital_managment_system.Windows.Doctors.DoctorCreateWindow"
+﻿<Window x:Class="Hospital_managment_system.Windows.BedPatients.BedPatientsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Hospital_managment_system.Windows.Doctors"
+        xmlns:local="clr-namespace:Hospital_managment_system.Windows.BedPatients"
         mc:Ignorable="d"
-        Title="DoctorCreateWindow" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded"
-        Height="800"
+        Title="BedPatientsWindow" 
+        WindowStartupLocation="CenterScreen"
+           Height="800"
         Width="800"
         ResizeMode="NoResize">
     <Border>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="180"/>
+                
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
-                
+
                 <Border Height="130"
                              Width="120"
                              Margin="350 0 0 0"
@@ -32,48 +33,40 @@
                         </Border.Background>
                     </Border>
                 </Border>
-                <Button Margin="10"
-                            Width="40"
-                            Height="40"
-                            BorderThickness="1"
-                            x:Name="ImageBut"
-                            Click="ImageBut_Click"
-                            Background="{DynamicResource PrimaryBackground}"
-                            BorderBrush="{DynamicResource GreyBorder}">
-                    <Label Margin="0 0 0 5">...</Label>
-                </Button>
+               
             </StackPanel>
             <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                                   
-                <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
-        <Border Background="{DynamicResource PrimaryBackground}"                
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Background="{DynamicResource PrimaryBackground}"                
                 Grid.Row="0" Grid.Column="0">
-                <StackPanel>
-                    <Label Margin="30 0 100 0"
+                    <StackPanel>
+                        <Label Margin="30 0 100 0"
                            Height="28"
                            FontWeight="SemiBold"
                            Foreground="{DynamicResource GreyBorder}"
                            FontSize="16">Name</Label>
-                    <Border Height="50"
+                        <Border Height="50"
                              Width="350"
                              Margin="0 0 0 0"
                             BorderBrush="{DynamicResource GreyBorder}"
                             CornerRadius="10"
                             BorderThickness="1"
                             >
-                        <TextBox x:Name="lblName"   
+                            <TextBox x:Name="lblName"   
                                  BorderThickness="0"
                             Margin="10"
                              FontSize="16"
@@ -81,26 +74,26 @@
                              Foreground="{DynamicResource GreyText}"
                              >
 
-                        </TextBox>
-                    </Border>
-                </StackPanel>
-            </Border>
-        <Border Background="{DynamicResource PrimaryBackground}" 
+                            </TextBox>
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}" 
                 Grid.Row="0" Grid.Column="1" Padding="0">
-                <StackPanel>
-                    <Label Margin="30 0 100 0"
+                    <StackPanel>
+                        <Label Margin="30 0 100 0"
                            Height="28"
                            FontWeight="SemiBold"
                            Foreground="{DynamicResource GreyBorder}"
                            FontSize="16">Surname</Label>
-                    <Border Height="50"
+                        <Border Height="50"
                              Width="350"
                              Margin="0 0 0 0"
                             BorderBrush="{DynamicResource GreyBorder}"
                             CornerRadius="10"
                             BorderThickness="1"
                             >
-                        <TextBox x:Name="lblSurName"                                                          
+                            <TextBox x:Name="lblSurName"                                                          
                             Margin="10"
                              FontSize="16"
                                  BorderThickness="0"
@@ -108,19 +101,19 @@
                              Foreground="{DynamicResource GreyText}"
                              >
 
-                        </TextBox>
-                    </Border>
-                </StackPanel>
-            </Border>
-        <Border Background="{DynamicResource PrimaryBackground}" 
+                            </TextBox>
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}" 
                 Grid.Row="1" Grid.Column="0">
-                <StackPanel>
+                    <StackPanel>
                         <Label Margin="30 0 100 0"
                            Height="28"
                            FontWeight="SemiBold"
                            Foreground="{DynamicResource GreyBorder}"
                            FontSize="16">Gender</Label>
-                    <Border Height="50"
+                        <Border Height="50"
                              Width="350"
                              Margin="20 0 0 0"
                             BorderBrush="{DynamicResource GreyBorder}"
@@ -134,16 +127,16 @@
                                              Margin="15"></RadioButton>
                                 <Label FontSize="16" Foreground="{DynamicResource GreyBorder}"
                                        Margin="15 5 0 5">Female</Label>
-                                
-                                    <RadioButton x:Name="MaleRb"
+
+                                <RadioButton x:Name="MaleRb"
                                                  Margin="15"></RadioButton>
-                                
-                                
-                                
-                                
+
+
+
+
                             </StackPanel>
-                            
-                        <!--<CheckBox x:Name="isMale"                                                          
+
+                            <!--<CheckBox x:Name="isMale"                                                          
                             Margin="10"
                              FontSize="16"
                              BorderBrush="{DynamicResource GreyBorder}"
@@ -154,19 +147,19 @@
                             </CheckBox.LayoutTransform>
 
                         </CheckBox>-->
-                    </Border>
-                </StackPanel>
-            </Border>
-        <Border Background="{DynamicResource PrimaryBackground}" 
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}" 
                 Grid.Row="1"
                 Grid.Column="1">
-                <StackPanel>
-                    <Label Margin="30 0 100 0"
+                    <StackPanel>
+                        <Label Margin="30 0 100 0"
                            Height="28"
                            FontWeight="SemiBold"
                            Foreground="{DynamicResource GreyBorder}"
                            FontSize="16">Adress</Label>
-                    <Border Height="50"
+                        <Border Height="50"
                              Width="350"
                             Margin="0 0 0 0"
                             Padding="0"
@@ -174,7 +167,7 @@
                             CornerRadius="10"
                             BorderThickness="1"
                             >
-                        <TextBox x:Name="Adresslbl"                                                          
+                            <TextBox x:Name="Adresslbl"                                                          
                             Margin="10"
                                  BorderThickness="0"
                              FontSize="16"
@@ -182,49 +175,49 @@
                              Foreground="{DynamicResource GreyText}"
                              >
 
-                        </TextBox>
-                    </Border>
-                </StackPanel>
-            </Border>
-            <Border Background="{DynamicResource PrimaryBackground}"
+                            </TextBox>
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}"
                 Grid.Row="2"
                 Grid.Column="0">
-                <StackPanel>
-                    <Label Margin="30 0 100 0"
+                    <StackPanel>
+                        <Label Margin="30 0 100 0"
                            Height="28"
                            FontWeight="SemiBold"
                            Foreground="{DynamicResource GreyBorder}"
                            FontSize="16">Tel Number</Label>
-                    <Border Height="50"
+                        <Border Height="50"
                              Width="350"
                              Margin="20 0 0 0"
                             BorderBrush="{DynamicResource GreyBorder}"
                             CornerRadius="10"
                             BorderThickness="1"
                             >
-                        <TextBox x:Name="Tel_Numberlbl"                                                          
+                            <TextBox x:Name="Tel_Numberlbl"                                                          
                             Margin="10"
-                                 PreviewTextInput="Tel_Numberlbl_PreviewTextInput"
+                            PreviewTextInput="Tel_Numberlbl_PreviewTextInput"
                              FontSize="16"
                              BorderBrush="{DynamicResource GreyBorder}"
                              BorderThickness="0"
                              Foreground="{DynamicResource GreyText}"
                              >
 
-                        </TextBox>
-                    </Border>
-                </StackPanel>
-            </Border>
-            <Border Background="{DynamicResource PrimaryBackground}"
+                            </TextBox>
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}"
                 Grid.Row="2"
                 Grid.Column="1">
-                <StackPanel>
-                    <Label Margin="30 0 100 0"
+                    <StackPanel>
+                        <Label Margin="30 0 100 0"
                            Height="28"
                            FontWeight="SemiBold"
                            Foreground="{DynamicResource GreyBorder}"
                            FontSize="16">Date Birth</Label>
-                    <Border Height="50"
+                        <Border Height="50"
                              Width="350"
                              Margin="0 0 0 0"
                             Padding="0"
@@ -232,7 +225,7 @@
                             CornerRadius="10"
                             BorderThickness="1"
                             >
-                        <DatePicker VerticalAlignment="Stretch"                                                                       
+                            <DatePicker VerticalAlignment="Stretch"                                                                       
                                     Margin="10"
                                     FontSize="16"
                                     BorderThickness="0"
@@ -240,48 +233,50 @@
                                     
                                     Background="{DynamicResource PrimaryBackground}"
                                     />
-                        
-                    </Border>
-                </StackPanel>
-            </Border>
-            <Border Background="{DynamicResource PrimaryBackground}"
+
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}"
                 Grid.Row="3"
                 Grid.Column="0">
-                <StackPanel>
-                    <Label Margin="30 0 100 0"
+                    <StackPanel>
+                        <Label Margin="30 0 100 0"
                            Height="28"
                            FontWeight="SemiBold"
                            Foreground="{DynamicResource GreyBorder}"
-                           FontSize="16">Department</Label>
-                    <Border Height="50"
+                           FontSize="16">Where Come From</Label>
+                        <Border Height="50"
                              Width="350"
                              Margin="20 0 0 0"
                             BorderBrush="{DynamicResource GreyBorder}"
                             CornerRadius="10"
                             BorderThickness="1"
                             >
-                        <ComboBox Margin="10"
-                                  x:Name="departmentcb"
-                                  DisplayMemberPath="name"
-                                  BorderThickness="0"
-                                  SelectedValuePath="Id"
-                                  >
-                            
-                                    
-                        </ComboBox>
-                    </Border>
-                </StackPanel>
-            </Border>
-            <Border Background="{DynamicResource PrimaryBackground}"
+                            <TextBox x:Name="WhereComFrom"                                                          
+                            Margin="10"
+                             FontSize="16"
+                             BorderBrush="{DynamicResource GreyBorder}"
+                             Foreground="{DynamicResource GreyText}"                             
+                            BorderThickness="0"
+                                 >
+
+
+                            </TextBox>
+
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}"
                 Grid.Row="3"
                 Grid.Column="1">
-                <StackPanel>
-                    <Label Margin="30 0 100 0"
+                    <StackPanel>
+                        <Label Margin="30 0 100 0"
                            Height="28"
                            FontWeight="SemiBold"
                            Foreground="{DynamicResource GreyBorder}"
                            FontSize="16">Room number</Label>
-                    <Border Height="50"
+                        <Border Height="50"
                              Width="350"
                              Margin="0 0 0 0"
                             Padding="0"
@@ -290,7 +285,7 @@
                             BorderThickness="1"
                             
                             >
-                        <ComboBox x:Name="Roomnumbercb"
+                            <ComboBox x:Name="Roomnumbercb"
                                   DisplayMemberPath="room_number"
                                   SelectedValuePath="Id"
                             Margin="10"
@@ -301,48 +296,101 @@
                              Foreground="{DynamicResource GreyText}"
                              >
 
-                        </ComboBox>
-                    </Border>
-                </StackPanel>
-            </Border>
-            <Border Background="{DynamicResource PrimaryBackground}"
+                            </ComboBox>
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}"
                 Grid.Row="4"
                 Grid.Column="0">
-                <StackPanel>
-                    <Label Margin="30 0 100 0"
+                    <StackPanel>
+                        <Label Margin="30 0 100 0"
                            Height="28"
                            FontWeight="SemiBold"
                            Foreground="{DynamicResource GreyBorder}"
                            FontSize="16">Description</Label>
-                    <Border Height="50"
+                        <Border Height="50"
                              Width="350"
                              Margin="20 0 0 0"
                             BorderBrush="{DynamicResource GreyBorder}"
                             CornerRadius="10"
                             BorderThickness="1"
                             >
-                        <TextBox x:Name="Descriptiontb"                                                          
+                            <TextBox x:Name="Descriptiontb"                                                          
                             Margin="10"
                              FontSize="16"
                              BorderBrush="{DynamicResource GreyBorder}"
                              Foreground="{DynamicResource GreyText}"                             
                             BorderThickness="0"
                                  >
-                           
 
-                        </TextBox>
-                    </Border>
-                </StackPanel>
-            </Border>
-            <Border Background="{DynamicResource PrimaryBackground}"
+
+                            </TextBox>
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}"
                 Grid.Row="4"
                 Grid.Column="1">
-                
-            </Border>
-            <Border Background="{DynamicResource PrimaryBackground}"
+                    <StackPanel>
+                        <Label Margin="30 0 100 0"
+                           Height="28"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource GreyBorder}"
+                           FontSize="16">Allergies</Label>
+                        <Border Height="50"
+                             Width="350"
+                             Margin="20 0 0 0"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            >
+                            <TextBox x:Name="Allergies"                                                          
+                            Margin="10"
+                             FontSize="16"
+                             BorderBrush="{DynamicResource GreyBorder}"
+                             Foreground="{DynamicResource GreyText}"                             
+                            BorderThickness="0"
+                                 >
+                            </TextBox>
+                        </Border>
+                    </StackPanel>
+
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}"
                 Grid.Row="5"
                 Grid.Column="0">
-                <Button Style="{DynamicResource CreateButton}"
+                    <StackPanel>
+                        <Label Margin="30 0 100 0"
+                           Height="28"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource GreyBorder}"
+                           FontSize="16">Leave Date</Label>
+                        <Border Height="50"
+                             Width="350"
+                             Margin="20 0 0 0"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            >
+                            <DatePicker VerticalAlignment="Stretch"                                                                       
+                                    Margin="10"
+                                    FontSize="16"
+                                    BorderThickness="0"
+                                    x:Name="LeaveDateP"
+                                    
+                                    Background="{DynamicResource PrimaryBackground}"
+                                    />
+                        </Border>
+                    </StackPanel>
+
+                </Border>
+
+
+                <Border Background="{DynamicResource PrimaryBackground}"
+                Grid.Row="7"
+                Grid.Column="0">
+                    <Button Style="{DynamicResource CreateButton}"
                         x:Name="SaveButton"
                         Height="60"
                         Width="100"
@@ -350,13 +398,13 @@
                         Margin="250 0 0 20" 
                         Click="SaveButton_Click"
                         >
-                </Button>
+                    </Button>
 
-            </Border>
-            <Border Background="{DynamicResource PrimaryBackground}"
-                Grid.Row="5"
+                </Border>
+                <Border Background="{DynamicResource PrimaryBackground}"
+                Grid.Row="8"
                 Grid.Column="1">
-                <Button Margin="0 0 250 20"
+                    <Button Margin="0 0 250 20"
                         Height="60"
                         Width="100"                        
                         x:Name="CancelButton"
@@ -365,11 +413,11 @@
                         Click="CancelButton_Click"
                         >
 
-                </Button>
-            </Border>
-            
-    </Grid>
-            
+                    </Button>
+                </Border>
+
+            </Grid>
+
         </Grid>
     </Border>
 </Window>

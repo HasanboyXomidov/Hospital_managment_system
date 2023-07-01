@@ -46,9 +46,25 @@ public class BedRoomRepository : BaseRepository,IBedRoomsRepository
         finally { await _connection.CloseAsync(); }
     }
 
-    public Task<int> DeleteAsync(long id)
+    public async Task<int> DeleteAsync(long id)
     {
-        throw new NotImplementedException();    
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "delete from bed_rooms " +
+                "where id = @id;";
+            await using ( var command = new NpgsqlCommand(query,_connection))
+            {
+                command.Parameters.AddWithValue("id", id);
+                var result = await command.ExecuteNonQueryAsync();
+                return result;
+            }
+        }
+        catch 
+        {
+            return 0;            
+        }
+        finally { await _connection.CloseAsync(); }
     } 
  
     // using bed_rooms_view !!!!

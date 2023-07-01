@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Hospital_managment_system.Components.Appointments.AppointmentsViewUserControl"
+﻿<UserControl x:Class="Hospital_managment_system.Components.BedPatients.BedPatientsViewUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Hospital_managment_system.Components.Appointments"
+             xmlns:local="clr-namespace:Hospital_managment_system.Components.BedPatients"
              mc:Ignorable="d" 
            Height="45" 
              Margin="1"
@@ -15,35 +15,35 @@
             <Grid>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="65"/>
                     <ColumnDefinition Width="*"/>
-                    
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+
                 <Label Grid.Column="0"
                    FontWeight="SemiBold"
-                   x:Name="lblqueue"
+                   x:Name="lblRoomNumber"
             FontSize="16"
             Foreground="{DynamicResource GreyText}"
             HorizontalAlignment="Center"
             Margin="0 5"
-                Content="12">
+                Content="Avazbek Xolmatov">
                 </Label>
-
                 <Label Grid.Column="1"
+                   x:Name="lblIsMale"
+                   FontSize="16"
                    FontWeight="SemiBold"
-                   x:Name="lblname"
-            FontSize="16"
-            Foreground="{DynamicResource GreyText}"
+            
             HorizontalAlignment="Center"
             Margin="0 5"
-                Content="Lebron James">
+                Content="Male">
                 </Label>
-               
-                <Label Grid.Column="3"
+                <Label Grid.Column="2"
                    x:Name="lblphone"
                    FontWeight="SemiBold"
                    FontSize="16"
@@ -51,35 +51,54 @@
             HorizontalAlignment="Center"
             Margin="0 5"
                    
-                Content="+998902723595"></Label>
-                <Label Grid.Column="4"
+                Content="+90272485568"></Label>
+                <Label Grid.Column="3"
                    FontSize="16"
-                   x:Name="lbldoctorname"
+                   x:Name="lblroom"
             FontWeight="SemiBold"
             HorizontalAlignment="Center"
             Margin="0 5"
-                Content="Uilyam Johnson"
-                Foreground="{DynamicResource GreyText}">
-                   
+                Content="12">
                 </Label>
-                <Label Grid.Column="2"
+                <Label Grid.Column="4"
                       FontSize="16"
-                   x:Name="lbltime"
+                   x:Name="lblComeDate"
                    FontWeight="SemiBold"
             Foreground="{DynamicResource GreyText}"
             HorizontalAlignment="Center"
             Margin="0 5"
-                Content="6/25/2023 07:10:12">
+                Content="6/30/2023">
 
                 </Label>
-                <Button Grid.Column="6" Background="{DynamicResource PrimaryBackground}"                    
-                    Click="Button_Click8"
+                <Label Grid.Column="5"
+                      FontSize="16"
+                   x:Name="lblLeaveDate"
+                   FontWeight="SemiBold"
+            Foreground="{DynamicResource GreyText}"
+            HorizontalAlignment="Center"
+            Margin="0 5"
+                Content="7/7/2023">
+                </Label>
+                <Button Grid.Column="6"
+                        Click="Button_Click"
+                        x:Name="btnViewProfile"
+                        Style="{DynamicResource View_Profile2}"
+                        Content="View Profile"
+                        >
                         
+                   
+                </Button>
+
+
+
+                <Button Grid.Column="7" Background="{DynamicResource PrimaryBackground}"                    
+                    Click="Button_Click_1"
                     Tag="{DynamicResource OthersIcon2}"
                     Style="{DynamicResource EditButton2}"
                                 Padding="0"
                                 Width="40"
-                                Height="40" >
+                                Height="40">
+                    
                 </Button>
 
 
@@ -89,9 +108,7 @@
 
         <Border >
             <Grid x:Name="grdEditDelete2"
-                  Margin="0 0 40 0"
-                  Visibility="Hidden"
-                  >
+                  Visibility="Collapsed">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="50"/>
@@ -99,26 +116,31 @@
                     <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="1"
+                        Click="btnEdit_Click"
+                        Width="20"
+                        Height="20"
                         x:Name="btnEdit"
                         BorderBrush="{DynamicResource PrimaryBackground}"
                         BorderThickness="1"
                         Background="{DynamicResource PrimaryBackground}"                        
                         >
-                    <Image Width="25"
-                           Height="25"
+                    <Image 
                            Source="/Assets/Icons/pencil (1).png"></Image>
                 </Button>
                 <Button Grid.Column="3"
+                        Width="20"
+                        Height="20" 
                         x:Name="btnDelete"
                         BorderBrush="{DynamicResource PrimaryBackground}"
                         BorderThickness="1"
-                        Background="{DynamicResource PrimaryBackground}"                        
+                        Background="{DynamicResource PrimaryBackground}" 
+                        Click="btnDelete_Click"
                         >
-                    <Image Width="25"
-                           Height="25"
+                    <Image 
                            Source="/Assets/Icons/delete (2).png"></Image>
                 </Button>
             </Grid>
         </Border>
     </Grid>
+
 </UserControl>

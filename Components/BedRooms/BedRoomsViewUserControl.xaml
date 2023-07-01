@@ -130,7 +130,8 @@
                         x:Name="btnDelete"
                         BorderBrush="{DynamicResource PrimaryBackground}"
                         BorderThickness="1"
-                        Background="{DynamicResource PrimaryBackground}"                        
+                        Background="{DynamicResource PrimaryBackground}" 
+                        Click="btnDelete_Click"
                         >
                     <Image Width="25"
                            Height="25"
