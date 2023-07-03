@@ -168,16 +168,20 @@
                             
                             <RadioButton Style="{DynamicResource RoomSort}"
                                          Content="All"
+                                         IsChecked="True"
+                                         Click="RadioButton_Click"
                                          FontSize="16">
                                 
                             </RadioButton>
                             <RadioButton Style="{DynamicResource RoomSort}"
                                          Content="Luxe"
+                                         Click="RadioButton_Click_1"
                                          FontSize="16">
 
                             </RadioButton>
                             <RadioButton Style="{DynamicResource RoomSort}"
-                                         Content="Usual"
+                                         Content="Usual"   
+                                         Click="RadioButton_Click_2"
                                          FontSize="16">
 
                             </RadioButton>

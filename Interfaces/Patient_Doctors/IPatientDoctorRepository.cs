@@ -16,7 +16,7 @@ public interface IPatientDoctorRepository:IRepository<PatientDoctor,PatientDocto
     public Task<int> GetYesterdaysTotalAppointment();
     public Task<int>GetWeeklyAllAppointment();
     public Task<int> MonthlyAllAppointments();
-
     public Task<IList<PatientDoctorViewModel>> GetNextExamPatients(Paginations @params);
+    public Task<IList<PatientDoctorViewModel>> Searching(string item, Paginations @params);
 
 }

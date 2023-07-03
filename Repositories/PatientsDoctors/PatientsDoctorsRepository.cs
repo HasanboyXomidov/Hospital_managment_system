@@ -110,7 +110,7 @@ public class PatientsDoctorsRepository : BaseRepository, IPatientDoctorRepositor
         {            
             return new List<PatientDoctorViewModel>();
         }
-        finally { await _connection.CloseAsync(); }
+        finally {  _connection.Close(); }
     }
 
     public Task<PatientDoctorViewModel> GetAsync(long id)
@@ -319,6 +319,47 @@ public class PatientsDoctorsRepository : BaseRepository, IPatientDoctorRepositor
         {
             await _connection.CloseAsync();
         }
+    }
+
+    public async Task<IList<PatientDoctorViewModel>> Searching(string item, Paginations @params)
+    {
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "select * from patient_doctor_view " +
+                "where patientfio ilike '%@name%' order by id desc;";
+            List<PatientDoctorViewModel> list = new List<PatientDoctorViewModel>();
+            await using (var command = new NpgsqlCommand(query,_connection))
+            {
+                command.Parameters.AddWithValue("name", item);
+                await using (var reader =await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        PatientDoctorViewModel obj = new PatientDoctorViewModel();
+                        obj.id = reader.GetInt64(0);
+                        obj.patientfio = reader.GetString(1);
+                        obj.gender_age = reader.GetString(2);
+                        obj.tel_number = reader.GetString(3);
+                        obj.doctorfio = reader.GetString(4);
+                        obj.cur_date = reader.GetFieldValue<DateTime>(5);
+                        obj.patientQueue = reader.GetInt32(6);
+                        obj.doctorExamCost = reader.GetFloat(7);
+                        obj.description = reader.GetString(8);
+                        obj.next_exam = reader.GetInt32(9);
+
+                        list.Add(obj);
+                    }
+                }
+                
+            }
+            return list;
+        }
+        catch 
+        {
+            return new List<PatientDoctorViewModel>();         
+        }
+        finally { await _connection.CloseAsync(); }
     }
 
     public async Task<int> UpdateAsync(long id, PatientDoctor editObj)

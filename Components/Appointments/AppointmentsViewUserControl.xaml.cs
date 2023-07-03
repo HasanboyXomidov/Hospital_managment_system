@@ -1,6 +1,7 @@
 ﻿using Hospital_managment_system.Entities.BedRooms;
 using Hospital_managment_system.Entities.PatientsDoctors;
 using Hospital_managment_system.Interfaces.Patient_Doctors;
+using Hospital_managment_system.Pages;
 using Hospital_managment_system.Repositories.PatientsDoctors;
 using Hospital_managment_system.ViewModels.PatientDoctorV;
 using Hospital_managment_system.Windows.PatientsDoctorsPage;
@@ -79,7 +80,7 @@ namespace Hospital_managment_system.Components.Appointments
         {
             Appointment_Window_Update win = new Appointment_Window_Update();
             win.setData(PatientDoctor);
-            win.ShowDialog();
+            win.ShowDialog();            
 
         }
 

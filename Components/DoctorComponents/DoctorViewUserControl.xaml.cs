@@ -41,6 +41,7 @@ namespace Hospital_managment_system.Components.DoctorComponents
             DoctorPosition.Content = doctor.department;
             ImgBImage.ImageSource = new BitmapImage(new System.Uri(doctor.passport_image_path, UriKind.Relative));
 
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

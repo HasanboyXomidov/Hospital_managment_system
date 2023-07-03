@@ -1,9 +1,13 @@
-﻿using Hospital_managment_system.Components.BedRooms;
+﻿using Hospital_managment_system.Components.Appointments;
+using Hospital_managment_system.Components.BedRooms;
+using Hospital_managment_system.Entities.BedRooms;
 using Hospital_managment_system.Interfaces.BedRooms;
 using Hospital_managment_system.Interfaces.RoomTypes;
 using Hospital_managment_system.Repositories.BedRooms;
 using Hospital_managment_system.Repositories.RoomTypes;
 using Hospital_managment_system.Utilities;
+using Hospital_managment_system.ViewModels.BedRooms;
+using Hospital_managment_system.ViewModels.PatientDoctorV;
 using Hospital_managment_system.Windows.BedRooms;
 using Hospital_managment_system.Windows.PatientsDoctorsPage;
 using System;
@@ -30,6 +34,7 @@ namespace Hospital_managment_system.Pages
     {
         private readonly IBedRoomsRepository _repository;
         private readonly IRoomTypesRepository _roomTypesRepository;
+        IList<BedRoomsViewModel> rooms { get ; set; }
 
         public BedMangmentPage()
         {
@@ -56,9 +61,9 @@ namespace Hospital_managment_system.Pages
                 PageNumber = 1,
                 PageSize = 20
             };
-            var bedrooms = await _repository.GetAllAsync(paginations);
+            rooms = await _repository.GetAllAsync(paginations);
 
-            foreach (var bedroom in bedrooms)
+            foreach (var bedroom in rooms)
             {
                 BedRoomsViewUserControl bedRoomsViewUserControl = new BedRoomsViewUserControl();
                 bedRoomsViewUserControl.setData(bedroom);
@@ -87,6 +92,36 @@ namespace Hospital_managment_system.Pages
             BedRoomCreateWindow bedRoomCreateWindow = new BedRoomCreateWindow();
             bedRoomCreateWindow.ShowDialog();
 
+
+        }
+
+        private async void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            await refreshAsync();
+        }
+
+        private void RadioButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWP.Children.Clear();
+            var result = rooms.Where(r => r.room_type=="Lux");
+            foreach (var item in result)
+            {
+                BedRoomsViewUserControl bedRoomsViewUserControl = new BedRoomsViewUserControl();
+                bedRoomsViewUserControl.setData(item);
+                MainWP.Children.Add(bedRoomsViewUserControl);
+            }
+        }
+
+        private void RadioButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            MainWP.Children.Clear();
+            var result = rooms.Where(r => r.room_type == "Usual");
+            foreach (var item in result)
+            {
+                BedRoomsViewUserControl bedRoomsViewUserControl = new BedRoomsViewUserControl();
+                bedRoomsViewUserControl.setData(item);
+                MainWP.Children.Add(bedRoomsViewUserControl);
+            }
 
         }
     }

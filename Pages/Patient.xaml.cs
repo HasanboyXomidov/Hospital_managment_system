@@ -2,6 +2,8 @@
 using Hospital_managment_system.Interfaces.Bed_patients;
 using Hospital_managment_system.Repositories.Bed_patients;
 using Hospital_managment_system.Utilities;
+using Hospital_managment_system.ViewModels.BedPatientsV;
+using Hospital_managment_system.ViewModels.PatientDoctorV;
 using Hospital_managment_system.Windows.BedPatients;
 using Hospital_managment_system.Windows.PatientsDoctorsPage;
 using System;
@@ -27,6 +29,8 @@ namespace Hospital_managment_system.Pages
     public partial class Patient : Page
     {
         private readonly IBed_PatientsRepository _repository;
+        public IList<BedPatientsViewModel> bedPatientsViewModels { get; set; }
+
         public Patient()
         {
             InitializeComponent();
@@ -39,28 +43,51 @@ namespace Hospital_managment_system.Pages
             bedPatientsWindow.Show();
 
         }
-        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        private async void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (Keyboard.Modifiers == ModifierKeys.None && e.Key == Key.Add)
             {
-                Appointment_Window appointment_Window = new Appointment_Window();
-                appointment_Window.ShowDialog();
+                BedPatientsWindow bedPatientsWindow = new BedPatientsWindow();
+                bedPatientsWindow.ShowDialog();
+                MainWP.Children.Clear();
+                await refreshasync();
+
             }
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            await refreshasync();
+        }
+        public async Task refreshasync()
         {
             Paginations paginations = new Paginations()
             {
                 PageNumber = 1,
                 PageSize = 30
             };
-            var getView = await _repository.GetAllAsync(paginations);
-            foreach ( var item in getView )
+            bedPatientsViewModels = await _repository.GetAllAsync(paginations);
+            foreach (var item in bedPatientsViewModels)
             {
                 BedPatientsViewUserControl bedPatientsViewUserControl = new BedPatientsViewUserControl();
                 bedPatientsViewUserControl.setData(item);
                 MainWP.Children.Add(bedPatientsViewUserControl);
+
+            }
+        }
+
+        private async void Search_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                MainWP.Children.Clear();
+                var searchBedPatients = bedPatientsViewModels.Where(d => d.name.ToUpper().Contains(Search.Text.ToUpper()));
+                foreach ( var item in searchBedPatients)
+                {
+                    BedPatientsViewUserControl bedPatientsViewUserControl = new BedPatientsViewUserControl();
+                    bedPatientsViewUserControl.setData(item);
+                    MainWP.Children.Add(bedPatientsViewUserControl);
+                }
 
             }
         }

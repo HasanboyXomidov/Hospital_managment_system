@@ -219,7 +219,10 @@
             <Border Grid.Row="1"
                 Background="{DynamicResource SecondaryBackground}">
                 <Frame x:Name="PageNavigator"
-                       NavigationUIVisibility="Hidden" />
+                       
+                       NavigationUIVisibility="Hidden">
+                   
+                </Frame>
             </Border>
     
         </Grid>

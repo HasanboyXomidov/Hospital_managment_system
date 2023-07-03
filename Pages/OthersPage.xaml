@@ -112,6 +112,7 @@
 
                         </Label>
                         <Button x:Name="BtnCreate_1"
+                                Visibility="Hidden"
                                 Style="{DynamicResource CreateButton}"
                                 Content="Create"                                                                                                                                                                 
                                 Margin="410 3"

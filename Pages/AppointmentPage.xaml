@@ -213,30 +213,39 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal" Grid.Column="0">
-
                             <RadioButton Style="{DynamicResource RoomSort}"
+                                         Content="All"
+                                         Click="RadioButton_Click_4"
+                                         IsChecked="True"
+                                         FontSize="16">
+                            </RadioButton>
+                            <RadioButton Style="{DynamicResource RoomSort}"
+                                         x:Name="Todayrb"
                                          Content="Today"
+                                         Click="RadioButton_Click_1"                                         
+                                         
                                          FontSize="16">
 
                             </RadioButton>
                             <RadioButton Style="{DynamicResource RoomSort}"
                                          Content="Yesterday"
+                                         Click="RadioButton_Click"
+                                         
                                          FontSize="16">
 
                             </RadioButton>
                             <RadioButton Style="{DynamicResource RoomSort}"
                                          Content="Weekly"
+                                         Click="RadioButton_Click_2"
                                          FontSize="16">
 
                             </RadioButton>
                             <RadioButton Style="{DynamicResource RoomSort}"
                                          Content="Monthly"
+                                         Click="RadioButton_Click_3"
                                          FontSize="16">
                             </RadioButton>
-                            <RadioButton Style="{DynamicResource RoomSort}"
-                                         Content="All"
-                                         FontSize="16">
-                            </RadioButton>
+                            
 
                         </StackPanel>
                         <Border Grid.Column="1" 
@@ -263,11 +272,11 @@
                                       Grid.Column="0"
                                       Data="{DynamicResource SearchICon2}"/>
                                 <TextBox Grid.Column="1" x:Name="Search"
-                                         Margin="0 20 0 10" Width="300"
+                                         Margin="0 20 0 10" Width="350"
                                          FontSize="16"
+                                         Keyboard.KeyUp="Search_KeyUp"                                         
                                          BorderThickness="0"
                                          >
-
                                 </TextBox>
                             </Grid>
                         </Border>

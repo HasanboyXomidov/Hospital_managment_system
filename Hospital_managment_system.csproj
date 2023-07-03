@@ -21,6 +21,7 @@
     <None Remove="Assets\Icons\view.png" />
     <None Remove="Assets\Images\healthcare.png" />
     <None Remove="Assets\Images\healthcare_blue.png" />
+    <None Remove="Assets\Images\krankenhaus-1280x853.jpg" />
     <None Remove="Assets\Images\Login_back_image.jpeg" />
     <None Remove="Assets\Images\Register_background.jpeg" />
     <None Remove="Assets\Logos\Color logo - no background.png" />
@@ -43,9 +44,11 @@
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.8" />
     <PackageReference Include="Npgsql" Version="7.0.4" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Images\krankenhaus-1280x853.jpg" />
     <Resource Include="Assets\Images\Login_back_image.jpeg" />
     <Resource Include="Assets\Images\Register_background.jpeg" />
     <Resource Include="Assets\Logos\RedLogo.png" />
