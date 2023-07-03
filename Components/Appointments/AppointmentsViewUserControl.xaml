@@ -100,6 +100,7 @@
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="1"
                         x:Name="btnEdit"
+                        Click="btnEdit_Click"
                         BorderBrush="{DynamicResource PrimaryBackground}"
                         BorderThickness="1"
                         Background="{DynamicResource PrimaryBackground}"                        
@@ -110,6 +111,7 @@
                 </Button>
                 <Button Grid.Column="3"
                         x:Name="btnDelete"
+                        Click="btnDelete_Click"
                         BorderBrush="{DynamicResource PrimaryBackground}"
                         BorderThickness="1"
                         Background="{DynamicResource PrimaryBackground}"                        

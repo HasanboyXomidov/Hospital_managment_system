@@ -9,9 +9,17 @@
       Title="PaymentPage">
 
     <Grid>
+        
+        <Label FontSize="25"
+               Margin="0 250 0 0"
+               HorizontalAlignment="Center"
+               >Explore Premium Version of HMS </Label>
+        <Label FontSize="25"
+               Margin="0 280 0 0"
+               HorizontalAlignment="Center"
+               >+99890 272-35-95</Label>
         <Label FontSize="50"
                HorizontalAlignment="Center"
-               VerticalAlignment="Center">Payment   </Label>
-
+               VerticalAlignment="Center">This Page for Premium Version</Label>
     </Grid>
 </Page>

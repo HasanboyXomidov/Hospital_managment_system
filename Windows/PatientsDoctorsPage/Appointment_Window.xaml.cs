@@ -42,19 +42,24 @@ namespace Hospital_managment_system.Windows.PatientsDoctorsPage
         }
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+            
             patientDoctor.patient_id = (long)cbpatientname.SelectedValue;
             patientDoctor.doctor_id = (long)cbdoktorname.SelectedValue;
             patientDoctor.next_exam_day = int.Parse(lblNextExam.Text);
-            patientDoctor.doctor_exam_cost=float.Parse(Doctor_exam_cost.Text);
+            patientDoctor.doctor_exam_cost = float.Parse(Doctor_exam_cost.Text);
             patientDoctor.description = lbldescription.Text;
             patientDoctor.created_at = patientDoctor.updated_at = TimeHelper.GetDateTime();
             patientDoctor.cur_date = DateOnly.FromDateTime(DateTime.Today);
             var getdoctorQueue = await _patientdoctor.GetCurrentQueue((long)cbdoktorname.SelectedValue);
-            patientDoctor.patient_queue = getdoctorQueue+1;
+            patientDoctor.patient_queue = getdoctorQueue + 1;
 
             var result = await _patientdoctor.CreateAsync(patientDoctor);
-            if (result > 0) MessageBox.Show("Appointment Created");
+            if (result > 0) {MessageBox.Show("Appointment Created"); this.Close(); 
+                QueueWindowShow queueWindowShow = new QueueWindowShow();
+                queueWindowShow.setData(patientDoctor);
+                queueWindowShow.ShowDialog();
+                    }
             else MessageBox.Show("Not Created!!");
 
         }

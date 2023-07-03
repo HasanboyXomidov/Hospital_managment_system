@@ -61,23 +61,16 @@ namespace Hospital_managment_system.Components.BedRooms
             lblRoomitype.Content = viewModel.room_type;
             lblBedRoomID.Content = viewModel.Id;
 
+
+            //For editing
             BedRoom.Id=viewModel.Id;
             BedRoom.Name = viewModel.name;
             BedRoom.capacity = viewModel.capacity;
             BedRoom.is_empty = viewModel.is_free;
             BedRoom.room_number = viewModel.room_number;
-            BedRoom.description = viewModel.description;
-            //BedRoom.room_type_id = 
+            BedRoom.description = viewModel.description;            
 
-        }
-        //public void setData2(BedRoom bedRoom)
-        //{
-        //    lblCapacity.Content = bedRoom.capacity;
-        //    BedRoom = bedRoom;
-        //}
-
-
-
+        }        
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             BedRoomsUpdateWindow bedRoomsUpdateWindow = new BedRoomsUpdateWindow();
@@ -87,7 +80,7 @@ namespace Hospital_managment_system.Components.BedRooms
         }
 
         private async void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
+        {            
             if (MessageBox.Show("Do you want to Delete ?",
                      "Delete file",
                      MessageBoxButton.YesNo,

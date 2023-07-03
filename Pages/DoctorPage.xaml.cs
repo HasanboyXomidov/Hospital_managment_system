@@ -3,6 +3,7 @@ using Hospital_managment_system.Interfaces.Doctors;
 using Hospital_managment_system.Repositories.Doctors;
 using Hospital_managment_system.Utilities;
 using Hospital_managment_system.Windows.Doctors;
+using Hospital_managment_system.Windows.PatientsDoctorsPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,14 @@ namespace Hospital_managment_system.Pages
             this._repository = new DoctorRepository();
         }
 
-
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.None && e.Key == Key.Add)
+            {
+                Appointment_Window appointment_Window = new Appointment_Window();
+                appointment_Window.ShowDialog();
+            }
+        }
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             DoctorCreateWindow doctorCreateWindow = new DoctorCreateWindow();

@@ -7,9 +7,13 @@
       mc:Ignorable="d" 
       Loaded="Page_Loaded_1"
       Title="AppointmentPage"
-      Height="800" Width="1300">
+      Height="800" Width="1300"
+      PreviewKeyDown="Window_PreviewKeyDown"
+      
+      >
 
     <Grid >
+        
         <Border Margin="20,15">
             <Grid>
                 <Grid.RowDefinitions>
@@ -148,7 +152,7 @@
                                         FontWeight="Bold"
                                         Height="25"
                                         
-                                        x:Name="lblAllRooms">
+                                        x:Name="lblweaklyall">
 
                                 </Label>
                             </StackPanel>
@@ -366,5 +370,6 @@
                 </ScrollViewer>
             </Grid>
         </Border>
+        
     </Grid>
 </Page>

@@ -51,9 +51,41 @@ public class RoomsRepository : BaseRepository, IRoomsRepository
         throw new NotImplementedException();
     }
 
-    public Task<IList<OtherRoom>> GetAllAsync(Paginations @params)
+    public async Task<IList<OtherRoom>> GetAllAsync(Paginations @params)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "select * from rooms order by id;";
+            List<OtherRoom> list = new List<OtherRoom>();
+            await using (var command= new NpgsqlCommand(query, _connection))
+            {
+                await using (var reader = await  command.ExecuteReaderAsync())
+                {
+                    while(await  reader.ReadAsync())
+                    {
+                        OtherRoom obj = new OtherRoom();
+                        obj.Id = reader.GetInt64(0);
+                        obj.room_number = reader.GetInt32(1);
+                        obj.name=reader.GetString(2);
+                        obj.is_free=reader.GetBoolean(3);
+                        obj.description = reader.GetString(4);
+                        obj.created_at= reader.GetDateTime(5);
+                        obj.updated_at= reader.GetDateTime(6);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+        catch
+        {
+            return new List<OtherRoom>();            
+        }
+        finally
+        {
+            await _connection.CloseAsync();
+        }
     }
 
     public Task<OtherRoom> GetAsync(long id)

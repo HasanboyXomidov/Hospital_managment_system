@@ -7,7 +7,9 @@
       mc:Ignorable="d" 
       Loaded="Page_Loaded"
       Title="Department"
-      Height="800" Width="1300">
+      Height="800" Width="1300"
+      PreviewKeyDown="Window_PreviewKeyDown"
+      >
 
     <Grid >
         <Border Margin="20,15">

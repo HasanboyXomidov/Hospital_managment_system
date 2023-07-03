@@ -1,4 +1,9 @@
-﻿using Hospital_managment_system.ViewModels.PatientDoctorV;
+﻿using Hospital_managment_system.Entities.BedRooms;
+using Hospital_managment_system.Entities.PatientsDoctors;
+using Hospital_managment_system.Interfaces.Patient_Doctors;
+using Hospital_managment_system.Repositories.PatientsDoctors;
+using Hospital_managment_system.ViewModels.PatientDoctorV;
+using Hospital_managment_system.Windows.PatientsDoctorsPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,15 +26,19 @@ namespace Hospital_managment_system.Components.Appointments
     /// </summary>
     public partial class AppointmentsViewUserControl : UserControl
     {
-        public bool button {  get ; set; }=false;
+        private readonly IPatientDoctorRepository _patientDoctorRepository;
+        public bool isvisible { get; set; } = false;
+        private PatientDoctor PatientDoctor { get; set; }
+
         public AppointmentsViewUserControl()
         {
             InitializeComponent();
+            PatientDoctor = new PatientDoctor();
+            this._patientDoctorRepository = new PatientsDoctorsRepository();
         }                
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (!button) { grdEditDelete2.Visibility = Visibility.Visible; button = true; }
-            else grdEditDelete2.Visibility = Visibility.Hidden; button = false;
+            
         }
         public void setData(PatientDoctorViewModel viewModel)
         {
@@ -40,6 +49,10 @@ namespace Hospital_managment_system.Components.Appointments
             lbldoctorname.Content = viewModel.doctorfio;
             lbltime.Content = viewModel.cur_date;
 
+            PatientDoctor.Id = viewModel.id;
+            PatientDoctor.doctor_exam_cost = viewModel.doctorExamCost;
+            PatientDoctor.description = viewModel.description;
+            PatientDoctor.next_exam_day = viewModel.next_exam;
 
         }
 
@@ -50,8 +63,39 @@ namespace Hospital_managment_system.Components.Appointments
 
         private void Button_Click8(object sender, RoutedEventArgs e)
         {
-            if(!button) { grdEditDelete2.Visibility=Visibility.Visible; button = true; }
-            else grdEditDelete2.Visibility=Visibility.Hidden; button = false;
+            if (!isvisible)
+            {
+                grdEditDelete2.Visibility = Visibility.Visible;
+                isvisible = true;
+            }
+            else
+            {
+                grdEditDelete2.Visibility = Visibility.Hidden;
+                isvisible = false;
+            }
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            Appointment_Window_Update win = new Appointment_Window_Update();
+            win.setData(PatientDoctor);
+            win.ShowDialog();
+
+        }
+
+        private async void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Do you want to Delete ?",
+                    "Delete file",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                var dll = await _patientDoctorRepository.DeleteAsync(PatientDoctor.Id);
+                if (dll > 0) MessageBox.Show("Deleted!!");
+                else MessageBox.Show("Not Deleted !!");
+            }
+            else MessageBox.Show("Something wrong ");
+                   
         }
     }
 }

@@ -5,6 +5,7 @@ using Hospital_managment_system.Repositories.BedRooms;
 using Hospital_managment_system.Repositories.RoomTypes;
 using Hospital_managment_system.Utilities;
 using Hospital_managment_system.Windows.BedRooms;
+using Hospital_managment_system.Windows.PatientsDoctorsPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,16 @@ namespace Hospital_managment_system.Pages
             this._roomTypesRepository=new RoomTypeRepository();
 
         }
-
+        private async void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.None && e.Key == Key.Add)
+            {
+                BedRoomCreateWindow bedRoomCreateWindow = new BedRoomCreateWindow();
+                bedRoomCreateWindow.ShowDialog();
+                MainWP.Children.Clear();
+            }
+            await refreshAsync();
+        }
         public async Task refreshAsync()
         {
             MainWP.Children.Clear();
@@ -67,7 +77,6 @@ namespace Hospital_managment_system.Pages
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
             await refreshAsync();
         }
 

@@ -5,8 +5,232 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hospital_managment_system.Windows.PatientsDoctorsPage"
         mc:Ignorable="d"
-        Title="Appointment_Window_Update" Height="450" Width="800">
+        Title="Appointment_Window_Update" 
+        Loaded="Window_Loaded_1"
+        Height="450"
+        WindowStartupLocation="CenterScreen"
+        Width="600">
+    
     <Grid>
-        
+        <Label x:Name="lblIDkeeper"
+               Visibility="Hidden">
+
+        </Label>
+        <Border>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+
+                        <RowDefinition Height="100"/>
+
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Background="{DynamicResource PrimaryBackground}"                
+                Grid.Row="0" Grid.Column="0">
+                        <StackPanel>
+                            <Label Margin="30 0 100 0"
+                           Height="28"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource GreyBorder}"
+                           FontSize="16">Patient S.N.F</Label>
+                            <Border Height="50"
+                             Width="250"
+                             Margin="0 0 0 0"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            >
+                                <ComboBox Margin="10"
+                                  x:Name="cbpatientname"                                          
+                                  DisplayMemberPath="name"                                  
+                                  BorderThickness="0"
+                                  SelectedValuePath="Id"
+                                  >
+
+
+                                </ComboBox>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                    <Border Background="{DynamicResource PrimaryBackground}" 
+                Grid.Row="0" Grid.Column="1" Padding="0">
+                        <StackPanel>
+                            <Label Margin="30 0 100 0"
+                           Height="28"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource GreyBorder}"
+                           FontSize="16">Doktor</Label>
+                            <Border Height="50"
+                             Width="250"
+                             Margin="0 0 0 0"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            >
+                                <ComboBox Margin="10"
+                                  x:Name="cbdoktorname"                                          
+                                  DisplayMemberPath="name"                                  
+                                  BorderThickness="0"
+                                  SelectedValuePath="Id"
+                                  >
+
+
+                                </ComboBox>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Background="{DynamicResource PrimaryBackground}" 
+                Grid.Row="1"
+                Grid.Column="1">
+                        <StackPanel>
+                            <Label Margin="30 0 100 0"
+                                   
+                           Height="28"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource GreyBorder}"
+                           FontSize="16">Doctor Exam Cost</Label>
+                            <Border Height="50"
+                             Width="250"
+                            Margin="0 0 0 0"
+                            Padding="0"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            >
+                                <TextBox x:Name="Doctor_exam_cost"                                                          
+                            Margin="10"                              
+                            PreviewTextInput="Doctor_exam_cost_PreviewTextInput"
+                            BorderThickness="0"
+                             FontSize="16"
+                             BorderBrush="{DynamicResource GreyBorder}"
+                             Foreground="{DynamicResource GreyText}"
+                             >
+
+                                </TextBox>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                    <Border Background="{DynamicResource PrimaryBackground}"
+                Grid.Row="2"
+                Grid.Column="0">
+
+                    </Border>
+
+                    <Border Background="{DynamicResource PrimaryBackground}"
+                Grid.Row="2"
+                Grid.Column="0">
+                        <StackPanel>
+                            <Label Margin="30 0 100 0"
+                           Height="28"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource GreyBorder}"
+                           FontSize="16">Desciption</Label>
+                            <Border Height="50"
+                             Width="250"
+                             Margin="20 0 0 0"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            >
+                                <TextBox x:Name="lbldescription"                                                          
+                            Margin="10"
+                             FontSize="16"
+                             BorderBrush="{DynamicResource GreyBorder}"
+                             BorderThickness="0"
+                             Foreground="{DynamicResource GreyText}"
+                             >
+
+                                </TextBox>
+                            </Border>
+                        </StackPanel>
+
+                    </Border>
+                    <Border Background="{DynamicResource PrimaryBackground}"
+                Grid.Row="1"
+                Grid.Column="0">
+                        <StackPanel>
+                            <Label Margin="30 0 100 0"
+                           Height="28"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource GreyBorder}"
+                           FontSize="16">Next Exam Day</Label>
+                            <Border Height="50"
+                             Width="250"
+                             Margin="20 0 0 0"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            >
+                                <TextBox x:Name="lblNextExam"                                                          
+                            Margin="10"
+                             FontSize="16"
+                                         Text="3"
+                             BorderBrush="{DynamicResource GreyBorder}"
+                             BorderThickness="0"
+                             Foreground="{DynamicResource GreyText}"
+                             >
+
+                                </TextBox>
+                            </Border>
+                        </StackPanel>
+
+                    </Border>
+                    <Border Background="{DynamicResource PrimaryBackground}"
+                Grid.Row="4"
+                Grid.Column="0">
+
+                    </Border>
+                    <Border Background="{DynamicResource PrimaryBackground}"
+                Grid.Row="4"
+                Grid.Column="1">
+
+                    </Border>
+                    <Border Background="{DynamicResource PrimaryBackground}"
+                Grid.Row="5"
+                Grid.Column="0">
+                        <Button Style="{DynamicResource CreateButton}"
+                        x:Name="SaveButton"
+                        Height="60"
+                        Width="100"
+                        Content="Save"
+                        Margin="150 0 0 20" 
+                        Click="SaveButton_Click"
+                        >
+                        </Button>
+
+                    </Border>
+                    <Border Background="{DynamicResource PrimaryBackground}"
+                Grid.Row="5"
+                Grid.Column="1">
+                        <Button Margin="0 0 150 20"
+                        Height="60"
+                        Width="100"                        
+                        x:Name="CancelButton"
+                        Style="{DynamicResource CancelButton}"
+                        Content="Cancel" 
+                        Click="CancelButton_Click"
+                        >
+
+                        </Button>
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+        </Border>
+
     </Grid>
 </Window>

@@ -524,4 +524,49 @@
         </Setter>
     </Style>
 
+    <Style x:Key="Documentation" TargetType="Button">
+        <Setter Property="Template">
+
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="CreateButtonBorder"
+                        CornerRadius="10"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                               BorderThickness="1"
+                            >
+                        <Label x:Name="Createlbl"
+                               FontSize="14"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontWeight="SemiBold"
+                               Padding="0"
+                               Content="{TemplateBinding Content}">
+                        </Label>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="CreateButtonBorder" Property="Cursor" Value="Hand" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="CreateButtonBorder" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+                            <Setter TargetName="Createlbl" Property="Foreground" Value="{DynamicResource Gradient}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="CreateButtonBorder" Property="Background" Value="{DynamicResource BlueButton}"/>
+                            <Setter TargetName="Createlbl" Property="Foreground" Value="{DynamicResource PrimaryBackground}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="CreateButtonBorder" Property="Background" Value="{DynamicResource PrimaryBackground}"/>
+                            <Setter TargetName="Createlbl" Property="Foreground" Value="{DynamicResource BlueButton}"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

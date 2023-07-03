@@ -11,7 +11,7 @@
         Title="Hospital Managment System" 
         Height="890" 
         Width="1300"
-        
+        Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource SecondaryBackground}"
         >
@@ -117,18 +117,16 @@
                                FontWeight="SemiBold"
                                Margin="57 15 55 10"
                                >Need help?</Label>
-                        <Border x:Name="Doc_Border"
+                        <Button x:Name="Doc_Border"
                                 Height="30"
-                                Width="200"
-                                Background="{DynamicResource PrimaryBackground}"
-                                CornerRadius="10">
-                            <Label x:Name="Doc_Label" HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   FontSize="14"
-                                   Foreground="{DynamicResource Gradient}"
-                                   FontWeight="SemiBold">Documentation</Label>
+                                Width="200"    
+                                Click="Doc_Border_Click_1"
+                                Style="{DynamicResource Documentation}"
+                                Content="Documentation"
+                                >
                             
-                        </Border>
+                            
+                        </Button>
                         
                     </StackPanel>
                 </Border>

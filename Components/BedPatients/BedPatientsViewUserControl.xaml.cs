@@ -22,7 +22,7 @@ namespace Hospital_managment_system.Components.BedPatients
     /// 
     public partial class BedPatientsViewUserControl : UserControl
     {
-        private bool button { get; set; } = false;
+        public bool isvisible { get; set; } = false;
         public BedPatientsViewUserControl()
         {
             InitializeComponent();
@@ -46,8 +46,16 @@ namespace Hospital_managment_system.Components.BedPatients
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if(!button) { grdEditDelete2.Visibility = Visibility.Visible; button = true; }
-            else grdEditDelete2.Visibility=Visibility.Collapsed; button = false;
+            if (!isvisible)
+            {
+                grdEditDelete2.Visibility = Visibility.Visible;
+                isvisible = true;
+            }
+            else
+            {
+                grdEditDelete2.Visibility = Visibility.Hidden;
+                isvisible = false;
+            }
 
 
         }

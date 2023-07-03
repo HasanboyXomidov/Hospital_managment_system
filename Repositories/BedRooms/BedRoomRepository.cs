@@ -120,7 +120,7 @@ public class BedRoomRepository : BaseRepository,IBedRoomsRepository
         {
             await _connection.OpenAsync();
             List<BedRoomsViewModel> list = new List<BedRoomsViewModel>();
-            string query = "select * from bed_rooms_view order by id " +
+            string query = "select * from bed_rooms_view order by id desc " +
                 $"offset {(@params.PageNumber-1)*@params.PageSize} " +
                 $"limit {@params.PageSize}";
 

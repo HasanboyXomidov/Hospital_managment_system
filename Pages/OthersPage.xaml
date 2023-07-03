@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:Hospital_managment_system.Pages"
       mc:Ignorable="d" 
       Height="800" Width="1270"
+      Loaded="Page_Loaded"
       Title="OthersPage">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -53,7 +54,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Style="{DynamicResource Gradient16Boldbtn}"
                                Content="Number"
-                               Margin="20 10"
+                               Margin="40 10"
                                Padding="2">
 
                         </Label>
@@ -81,8 +82,11 @@
                 <ScrollViewer Grid.Row="3">
                 <Border  BorderThickness="0 0 0 0"
                         BorderBrush="{DynamicResource GreyBorder}">
-                    
-                </Border>
+                        <WrapPanel  x:Name="MainWP"
+                        >
+                            
+                        </WrapPanel>
+                    </Border>
                 </ScrollViewer>
             </Grid>
         </Border>
@@ -124,7 +128,7 @@
                         <Label Style="{DynamicResource Gradient16Boldbtn}"
                                Content="Name"                               
                                Padding="2"
-                               Margin="150 10"
+                               Margin="130 10"
                                 Width="80">
 
                         </Label>
@@ -132,7 +136,7 @@
                         
                         <Label Style="{DynamicResource Gradient16Boldbtn}"
                                Content="Cost"
-                               Margin="4 10"
+                               Margin="80 10"
                                 Width="80"
                                Padding="2">
 
@@ -144,7 +148,11 @@
                         BorderBrush="{DynamicResource GreyBorder}"
                         BorderThickness="1 0 0 0"
                         >
-                </Border>
+                        <WrapPanel  x:Name="MainWP2"
+                        >
+
+                        </WrapPanel>
+                    </Border>
                 </ScrollViewer>
             </Grid>
         </Border>

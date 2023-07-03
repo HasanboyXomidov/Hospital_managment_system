@@ -155,7 +155,7 @@ namespace Hospital_managment_system.Windows.Doctors
 
             var rooms = await _roomsRepository.GetEmptyRooms(new Utilities.Paginations()
             {
-                PageNumber=1,
+                PageNumber= 1,
                 PageSize = 100
             }
                 );

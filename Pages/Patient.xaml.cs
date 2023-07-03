@@ -3,6 +3,7 @@ using Hospital_managment_system.Interfaces.Bed_patients;
 using Hospital_managment_system.Repositories.Bed_patients;
 using Hospital_managment_system.Utilities;
 using Hospital_managment_system.Windows.BedPatients;
+using Hospital_managment_system.Windows.PatientsDoctorsPage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,14 @@ namespace Hospital_managment_system.Pages
             BedPatientsWindow bedPatientsWindow = new BedPatientsWindow();
             bedPatientsWindow.Show();
 
+        }
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.None && e.Key == Key.Add)
+            {
+                Appointment_Window appointment_Window = new Appointment_Window();
+                appointment_Window.ShowDialog();
+            }
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)

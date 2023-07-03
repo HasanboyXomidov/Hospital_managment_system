@@ -30,34 +30,54 @@ namespace Hospital_managment_system.Pages
         {
             InitializeComponent();
             this._patientDoctorRepository=new PatientsDoctorsRepository();
+            
+        }
+        private async void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.None && e.Key == Key.Add)
+            {                
+                Appointment_Window appointment_Window = new Appointment_Window();
+                appointment_Window.ShowDialog();
+                MainWP.Children.Clear();
+            }
+            await refreshAsync();
         }
 
-        private void BtnCreate_Click(object sender, RoutedEventArgs e)
+
+        private async void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             Appointment_Window appointment_Window = new Appointment_Window();
-            appointment_Window.Show();
-
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+            appointment_Window.ShowDialog();
+            MainWP.Children.Clear();
+            await refreshAsync();
+        }        
         private async void Page_Loaded_1(object sender, RoutedEventArgs e)
+        {            
+            await refreshAsync();
+        }
+        public async Task refreshAsync()
         {
+            MainWP.Children.Clear();
             var getruslt = await _patientDoctorRepository.GetAllAsync(new Utilities.Paginations()
             {
                 PageNumber = 1,
-                PageSize=30
+                PageSize = 30
             });
-            foreach(var item in getruslt)
+            foreach (var item in getruslt)
             {
                 AppointmentsViewUserControl appointmentsViewUserControl = new AppointmentsViewUserControl();
                 appointmentsViewUserControl.setData(item);
                 MainWP.Children.Add(appointmentsViewUserControl);
             }
+            var getTodaysTotal = await _patientDoctorRepository.GetTodaysTotalAppointment();
+            var getYesterdaysTotal = await _patientDoctorRepository.GetYesterdaysTotalAppointment();
+            var getWeeklyTotal = await _patientDoctorRepository.GetWeeklyAllAppointment();
+            var getmonthlyTotal = await _patientDoctorRepository.MonthlyAllAppointments();
 
+            Todays_Total_Appointment.Content = getTodaysTotal;
+            Yesterday_Total_Appointment.Content = getYesterdaysTotal;
+            lblweaklyall.Content = getWeeklyTotal;
+            Monthly_Total_Appointments.Content = getmonthlyTotal;
         }
     }
 }

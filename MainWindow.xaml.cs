@@ -102,5 +102,21 @@ namespace Hospital_managment_system
             OthersPage othersPage = new OthersPage();
             PageNavigator.Content = othersPage;
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Doc_Border_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Doc_Border_Click_1(object sender, RoutedEventArgs e)
+        {
+            DocumentationPage documentationPage = new DocumentationPage();
+            PageNavigator.Content = documentationPage;
+        }
     }
 }
