@@ -40,6 +40,7 @@
         <Border Margin="103,351,557,189"
                 Background="White"
                 CornerRadius="20"
+                MouseDown="Border_MouseDown_1"
                 >
             <Label Content="Register"
                    VerticalAlignment="Center"

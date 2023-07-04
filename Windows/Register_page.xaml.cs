@@ -53,7 +53,7 @@ namespace Hospital_managment_system.Windows
                 try
                 {
                     var dbResult = await RegisterAync(admin);
-                    if (dbResult) MessageBox.Show("Successfully Registred!! ");
+                    if (dbResult) { MessageBox.Show("Successfully Registred!! "); this.Close(); }
                     else MessageBox.Show("!! Error Try again !!");
                 }
                 catch
@@ -89,6 +89,13 @@ namespace Hospital_managment_system.Windows
             return result > 0;
 
 
+        }
+
+        private void Border_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            Login_page login_Page = new Login_page();   
+            login_Page.ShowDialog();
+            this.Close();
         }
     }
 }

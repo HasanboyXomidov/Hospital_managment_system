@@ -84,6 +84,7 @@
                             Margin="0"
                             Style="{DynamicResource View_Profile}"                            
                             Content="View Profile"
+                               Click="Button_Click_1"
                             >
                         
                     </Button>
@@ -100,6 +101,7 @@
                 <Border Height="30" CornerRadius="10">
                     <Button BorderBrush="{DynamicResource SecondaryBackground}"
                             BorderThickness="1 1 1 0"
+                            Click="Button_Click_2"
                             Background="{DynamicResource PrimaryBackground}">
                         <Image Source="/Assets/Icons/pencil (1).png"></Image>
                     </Button>
@@ -108,6 +110,7 @@
                     <Button BorderBrush="{DynamicResource SecondaryBackground}"
                             Background="{DynamicResource PrimaryBackground}"
                             BorderThickness="1 0 1 1"
+                            Click="Button_Click_3"
                             >
                         <Image Source="/Assets/Icons/delete (2).png"></Image>
                     </Button>

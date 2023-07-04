@@ -1,0 +1,186 @@
+﻿<Window x:Class="Hospital_managment_system.Windows.Doctors.DoctorShowRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hospital_managment_system.Windows.Doctors"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"        
+        Height="840"
+        Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="425"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Height="400"
+                Grid.Row="0"
+                Grid.Column="0"
+                             Width="400"
+                             Margin="10 0"
+                            BorderBrush="{DynamicResource GreyBorder}"
+                            CornerRadius="10"
+                            BorderThickness="1"
+                            Background="{DynamicResource GreyBorder}"
+                            >
+            <Border BorderThickness="0"
+                    >
+                <Border.Background>
+                    <ImageBrush x:Name="ImgBImage"/>
+                </Border.Background>
+            </Border>
+        </Border>
+        <Label Grid.Row="0"
+               Grid.Column="1"
+                Content="Description"
+               Margin="10"
+                   Foreground="{DynamicResource Gradient}"
+                   FontSize="16"
+                   FontWeight="Bold">
+        </Label>
+        <WrapPanel Grid.Row="0" 
+                   Grid.Column="1">
+        <StackPanel Orientation="Vertical" Width="360" Height="400">
+        <TextBlock 
+                   Margin="20 50 20 20"
+                   FontSize="16"
+                   Padding="0"
+                TextWrapping="Wrap"
+                   Foreground="{DynamicResource GreyBorder}"
+                   x:Name="lbldescription"
+                   Text="Avvalo sozlarimni assalomdan boshlayin mening
+doktor ismim Doktror.Men odamlarni davolayman menig ishim juda ham masulyatli.
+Bu doktorlik maqomiga yetishim uchun men 6 yil bakalvriya va 3 yil magistratura o'qiganman.
+Bizning kasbda risk katta xato qilsak odamning joni uzlishi mumkin shuning uchun universitetda 9 yil oqiymiz
+Lekin men o'z kasbimni juda sevaman va men o'z kasbim bilan xalqimga halol xiamzt qilib foydam tegayotganida hursandman."
+                   >
+        </TextBlock>
+        </StackPanel>
+        </WrapPanel>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"
+                   Content="Name"
+                   Foreground="{DynamicResource Gradient}"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="10 0">
+                
+            </Label>
+            <Label Grid.Row="0"
+                   Content="Ahmeed Wlahk DC"
+                   Foreground="{DynamicResource GreyBorder}"
+                   FontSize="16"
+                   x:Name="lblname"
+                   Margin="10 25">
+
+            </Label>
+            <Label Grid.Row="1"
+                   Content="Department"
+                   Foreground="{DynamicResource Gradient}"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="10 0">
+                    
+            </Label>
+            <Label Grid.Row="1"
+                   Content="Dentistry"
+                   Foreground="{DynamicResource GreyBorder}"
+                   FontSize="16"
+                   Margin="10 25"
+                   x:Name="lbldepartment">
+            </Label>
+            <Label Grid.Row="2"
+                   Content="Gender"
+                   Foreground="{DynamicResource Gradient}"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="10 0">
+            </Label>
+            <Label Grid.Row="2"
+                   Content="Male"
+                   Foreground="{DynamicResource GreyBorder}"
+                   FontSize="16"
+                   Margin="10 25"
+                   x:Name="lblGender">
+            </Label>
+            <Label Grid.Row="3"
+                   Content="Adress"
+                   Foreground="{DynamicResource Gradient}"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="10 0">
+            </Label>
+            <Label Grid.Row="3"
+                   Content="USA Birmighton"
+                   Foreground="{DynamicResource GreyBorder}"
+                   FontSize="16"
+                   Margin="10 25"
+                   x:Name="lbllocation">
+            </Label>
+            <Label Grid.Row="4"
+                   Content="Contact Informations"
+                   Foreground="{DynamicResource Gradient}"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="10 0">
+            </Label>
+            <Label Grid.Row="4"
+                   Content="+99890 272-35-95"
+                   Foreground="{DynamicResource GreyBorder}"
+                   FontSize="16"
+                   Margin="10 25"
+                   x:Name="lblphone">
+            </Label>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                   Content="Date-Birth"
+                   Foreground="{DynamicResource Gradient}"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="10 0">
+                </Label>
+                <Label Grid.Row="0"
+                   Content="1980-12-06"
+                   Foreground="{DynamicResource GreyBorder}"
+                   FontSize="16"
+                   Margin="10 25"
+                   x:Name="lbldatebirth">
+                </Label>
+                <Label Grid.Row="1"
+                   Content="Room Number"
+                   Foreground="{DynamicResource Gradient}"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Margin="10 0">
+                </Label>
+                <Label Grid.Row="1"
+                   Content="1"
+                   Foreground="{DynamicResource GreyBorder}"
+                   FontSize="16"
+                   Margin="10 25"
+                   x:Name="lblroomnumber">
+                </Label>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

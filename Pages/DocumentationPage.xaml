@@ -27,22 +27,36 @@
 The Hospital Management System is a comprehensive software solution designed to streamline and automate various administrative and operational tasks within a hospital or healthcare facility. This system aims to improve efficiency, reduce paperwork, and enhance the overall management of patient records, appointments, billing, and other essential functions.
 
 ## Features
+                                   
 1. Patient Management: The system allows for efficient management of patient information, including registration, medical history, and demographic details.
+                                   
 2. Appointment Scheduling: Users can easily schedule and manage patient appointments, ensuring a smooth workflow and reducing waiting times.
+                                   
 3. Doctor and Staff Management: The system provides functionality for managing doctors and staff members, including their profiles, schedules, and assignments.
+                                   
 4. Electronic Medical Records (EMR): Patient medical records can be stored electronically, enabling quick access, updating, and sharing of vital information.
+                                   
 5. Billing and Invoicing: The system facilitates accurate and efficient billing processes, including generating invoices, tracking payments, and managing insurance claims.
 6. Pharmacy and Inventory Management: It includes features for managing pharmacy inventory, tracking medication usage, and generating reports for stock management.
 7. Laboratory and Test Management: The system allows for seamless integration with laboratory services, including test orders, results tracking, and reporting.
 8. Reporting and Analytics: Comprehensive reporting capabilities provide insights into various aspects of the hospital's operations, enabling data-driven decision-making.
+                                   
+                                   
 
 ## System Requirements
+
 - Operating System: Windows 10 or higher
+                                   
 - Processor: Intel Core i5 or equivalent
+                                   
 - Memory: 8 GB RAM
+                                   
 - Storage: 100 GB available space
+                                   
 - Database: PostgreSQL 12 or higher
+                                   
 - Development Framework: .NET Framework 4.8 or higher
+                                   
 
 ## Installation
 1. Download the Hospital Management System installation package from the provided source.

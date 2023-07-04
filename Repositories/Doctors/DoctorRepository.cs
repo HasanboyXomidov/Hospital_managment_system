@@ -79,9 +79,27 @@ public class DoctorRepository : BaseRepository, IDoctorRepository
         finally { await _connection.CloseAsync(); }
     }
 
-    public Task<int> DeleteAsync(long id)
+    public async Task<int> DeleteAsync(long id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _connection.OpenAsync();
+            string query = $"DELETE FROM public.doctors WHERE id={id};";
+            await using (var command = new NpgsqlCommand(query, _connection))
+            {
+                var result = await command.ExecuteNonQueryAsync();
+                return result;
+            }
+        }
+        catch 
+        {
+
+            return 0;
+        }
+        finally
+        {
+            await _connection.CloseAsync(); 
+        }
     }
 
     public async Task<IList<DoctorsViewModel>> GetAllAsync(Paginations @params)
@@ -173,8 +191,42 @@ public class DoctorRepository : BaseRepository, IDoctorRepository
         finally { await _connection.CloseAsync(); }
     }
 
-    public Task<int> UpdateAsync(long id, Doctor editObj)
+    public async Task<int> UpdateAsync(long id, Doctor obj)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _connection.OpenAsync();
+            string query = "UPDATE public.doctors " +
+                "SET name=@name, surname=@surname, is_male=@is_male, adress=@adress, tel_number=@tel_number, date_birth=@date_birth, department_id=@department_id, rooms_id=@rooms_id, description=@description, medical_education_image_path=@medical_education_image_path, higher_education_image_path=@higher_education_image_path, passport_image_path=@passport_image_path, created_at=@created_at, updated_at=@updated_at " +
+                $"WHERE id={id};";
+            await using (var command = new NpgsqlCommand(query,_connection))
+            {
+                command.Parameters.AddWithValue("name", obj.name);
+                command.Parameters.AddWithValue("surname", obj.surname);
+                command.Parameters.AddWithValue("is_male", obj.is_male);
+                command.Parameters.AddWithValue("adress", obj.adress);
+                command.Parameters.AddWithValue("tel_number", obj.tel_number);
+                command.Parameters.AddWithValue("date_birth", obj.date_birth);
+                command.Parameters.AddWithValue("department_id", obj.department_id);
+                command.Parameters.AddWithValue("rooms_id", obj.rooms_id);
+                command.Parameters.AddWithValue("description", obj.description);
+                command.Parameters.AddWithValue("medical_education_image_path", obj.medical_education_image_path);
+                command.Parameters.AddWithValue("higher_education_image_path", obj.higher_education_image_path);
+                command.Parameters.AddWithValue("passport_image_path", obj.Passport_Image_Path);
+                command.Parameters.AddWithValue("created_at", obj.created_at);
+                command.Parameters.AddWithValue("updated_at", obj.updated_at);
+
+                var result = await command.ExecuteNonQueryAsync();
+                return result;
+            }
+        }
+        catch
+        {
+            return 0;
+        }
+        finally
+        {
+            await _connection.CloseAsync();
+        }
     }
 }

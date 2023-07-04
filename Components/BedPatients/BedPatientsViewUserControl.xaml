@@ -80,7 +80,7 @@
                 Content="7/7/2023">
                 </Label>
                 <Button Grid.Column="6"
-                        Click="Button_Click"
+                        Click="btnViewProfile_Click"
                         x:Name="btnViewProfile"
                         Style="{DynamicResource View_Profile2}"
                         Content="View Profile"

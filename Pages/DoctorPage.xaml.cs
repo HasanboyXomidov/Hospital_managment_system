@@ -34,36 +34,45 @@ namespace Hospital_managment_system.Pages
             this._repository = new DoctorRepository();
         }
 
-        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        private async void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (Keyboard.Modifiers == ModifierKeys.None && e.Key == Key.Add)
             {
-                Appointment_Window appointment_Window = new Appointment_Window();
-                appointment_Window.ShowDialog();
+                DoctorCreateWindow doctorCreateWindow   = new DoctorCreateWindow();
+                doctorCreateWindow.ShowDialog();    
+                MainWP.Children.Clear();
             }
+            await refreshAscyn();
         }
-        private void BtnCreate_Click(object sender, RoutedEventArgs e)
+        private async void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             DoctorCreateWindow doctorCreateWindow = new DoctorCreateWindow();
             doctorCreateWindow.ShowDialog();
+            MainWP.Children.Clear();
+            await refreshAscyn();
         }
         private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {            
+        {
+            await refreshAscyn();
+
+        }
+        public async Task refreshAscyn()
+        {
+            MainWP.Children.Clear();
             Paginations paginations = new Paginations()
             {
                 PageNumber = 1,
-                PageSize = 20               
+                PageSize = 20
             };
             var doctors = await _repository.GetAllAsync(paginations);
             var cntdoctor = await _repository.CountDoctor();
-            CountDoctorlbl.Content ="Total " + cntdoctor.ToString() +" Doctors.";
-            foreach ( var doctor in doctors)
+            CountDoctorlbl.Content = "Total " + cntdoctor.ToString() + " Doctors.";
+            foreach (var doctor in doctors)
             {
                 DoctorViewUserControl doctorViewUserControl = new DoctorViewUserControl();
                 doctorViewUserControl.setData(doctor);
                 MainWP.Children.Add(doctorViewUserControl);
             }
-
         }
     }
 }

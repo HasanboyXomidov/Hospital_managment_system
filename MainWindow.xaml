@@ -100,7 +100,7 @@
                              Click="rbComplaint_Click">
                 </RadioButton>
                 <RadioButton x:Name="rbOthers" 
-                             Content="Others"
+                             Content="Rooms"
                              Style="{DynamicResource MenuButton}"
                              Tag="{DynamicResource OthersIcon}"
                              Click="rbOthers_Click_1">

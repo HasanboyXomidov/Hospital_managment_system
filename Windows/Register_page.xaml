@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         Title="Register_page"
          Width="800"
+        
         MaxHeight="620"
         MaxWidth="800"
         MinHeight="620"
@@ -41,6 +42,7 @@
         <Border Margin="103,351,557,189"
                 Background="White"
                 CornerRadius="20"
+                MouseDown="Border_MouseDown_1"
                 >
             <Label Content="Sign in"
                    VerticalAlignment="Center"
@@ -52,7 +54,7 @@
 
 
 
-        <Border Margin="450,70,80,95"
+        <Border Margin="450,40,80,40"
             Background="White"
             BorderBrush="White"
             CornerRadius="10"
@@ -69,6 +71,13 @@
                   FontSize="10"
                   Margin="5,0,0,0"
                   Foreground="#C9C9C9"
+                  FontWeight="SemiBold"
+                  >
+                </Label>
+                <Label Content="First Name"                   
+                  FontSize="10"
+                  Margin="5,0,0,0"
+                  Foreground="{DynamicResource Gradient}"
                   FontWeight="SemiBold"
                   >
                 </Label>
@@ -91,10 +100,10 @@
                          md:HintAssist.Hint="First name"
                          />
                 </Border>
-                <!--<Label Content="Second name"                   
+                <Label Content="Second name"                   
                    FontSize="10"
                    FontWeight="Bold"
-                   Foreground="#334D66"/>-->
+                   Foreground="#334D66"/>
                 <Border BorderThickness="1"
                     BorderBrush="#C9C9C9"
                     Height="35"
@@ -110,10 +119,10 @@
                              md:HintAssist.Hint="Second name"
                          />
                 </Border>
-                <!--<Label Content="Email"                   
+                <Label Content="Email"                   
                    FontSize="10"
                    FontWeight="Bold"
-                   Foreground="#334D66"/>-->
+                   Foreground="#334D66"/>
                 <Border BorderThickness="1"
                     BorderBrush="#C9C9C9"
                     Height="35"
@@ -130,10 +139,10 @@
                          ></TextBox>
                     
                 </Border>
-                <!--<Label Content="Password"                   
+                <Label Content="Password"                   
                    FontSize="10"
                    FontWeight="Bold"
-                   Foreground="#334D66"/>-->
+                   Foreground="#334D66"/>
                 <Border BorderThickness="1"
                     BorderBrush="#C9C9C9"
                     Height="35"

@@ -38,6 +38,7 @@ namespace Hospital_managment_system.Windows
             if (checking_end==true && password_hash.Length!=0 && password_hash.Length<32 && email.Length>12 && email.Length<35)
             {
                 MessageBox.Show("Successfully signed in !");
+                this.Close();
 
             } else MessageBox.Show("Not found user !");
 
@@ -86,6 +87,13 @@ namespace Hospital_managment_system.Windows
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             //Tb_Password.PasswordChar = '\0';
+        }
+
+        private void Border_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            Register_page register_Page = new Register_page();  
+            register_Page.ShowDialog();
+            this.Close();
         }
     }
 }

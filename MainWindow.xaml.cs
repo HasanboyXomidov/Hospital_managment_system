@@ -1,5 +1,6 @@
 ﻿using Hospital_managment_system.Entities.PatientsDoctors;
 using Hospital_managment_system.Pages;
+using Hospital_managment_system.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -105,6 +106,10 @@ namespace Hospital_managment_system
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            Login_page login_Page = new Login_page();
+            login_Page.ShowDialog();
+            this.Show();
 
         }
 

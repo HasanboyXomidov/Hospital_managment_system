@@ -1,4 +1,5 @@
 ﻿using Hospital_managment_system.ViewModels.BedPatientsV;
+using Hospital_managment_system.Windows.BedPatients;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Hospital_managment_system.Components.BedPatients
     public partial class BedPatientsViewUserControl : UserControl
     {
         public bool isvisible { get; set; } = false;
+        public BedPatientsViewModel BedPatientsViewModel { get; set; }
         public BedPatientsViewUserControl()
         {
             InitializeComponent();
@@ -41,6 +43,8 @@ namespace Hospital_managment_system.Components.BedPatients
             lblroom.Content = viewModel.room_number;
             lblComeDate.Content = viewModel.comeTime;
             lblLeaveDate.Content = viewModel.leaveTime;
+
+            BedPatientsViewModel=viewModel;
 
         }
 
@@ -67,6 +71,14 @@ namespace Hospital_managment_system.Components.BedPatients
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void btnViewProfile_Click(object sender, RoutedEventArgs e)
+        {
+            BedPatientsShowRoom bedPatientsShowRoom = new BedPatientsShowRoom();
+            bedPatientsShowRoom.setData(BedPatientsViewModel);
+            bedPatientsShowRoom.ShowDialog();
 
         }
     }
