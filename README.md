@@ -13,6 +13,8 @@ Easy searching with simply pressing ENTER
 ![image](https://github.com/HasanboyXomidov/Hospital_managment_system/assets/125248359/a4c81de4-6c93-44ee-a7b6-3bd9c3e23e7b)
 Edit and Delete No Problem
 ![image](https://github.com/HasanboyXomidov/Hospital_managment_system/assets/125248359/06bf91ff-c89b-4e68-b03d-4d09bebcc1af)
+If the patient's next examination day comes, the program will send a notification to the admins and the admins will contact the patient and remind them of the examination day.
+![image](https://github.com/HasanboyXomidov/Hospital_managment_system/assets/125248359/51fdad82-775f-43bc-b7be-ba3020ea36b9)
 
 
 
